@@ -11,7 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160622001141) do
+ActiveRecord::Schema.define(version: 20160623005320) do
+
+  create_table "profile", force: :cascade do |t|
+    t.integer  "stakeholder_id"
+    t.string   "website_url"
+    t.string   "facebook_url"
+    t.string   "youtube_url"
+    t.string   "twitter_url"
+    t.string   "instagram_url"
+    t.string   "name"
+    t.string   "email"
+    t.string   "phone"
+    t.string   "street"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  create_table "stakeholder", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "user", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
