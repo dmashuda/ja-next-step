@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Label:</strong>
+  <%= @career_field.label %>
+</p>
+
+<p>
+  <strong>Active:</strong>
+  <%= @career_field.active %>
+</p>
+
+<%= link_to 'Edit', edit_career_field_path(@career_field) %> |
+<%= link_to 'Back', career_fields_path %>

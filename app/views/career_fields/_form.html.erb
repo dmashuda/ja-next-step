@@ -1,0 +1,25 @@
+<%= form_for(@career_field) do |f| %>
+  <% if @career_field.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@career_field.errors.count, "error") %> prohibited this career_field from being saved:</h2>
+
+      <ul>
+      <% @career_field.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :label %><br>
+    <%= f.text_field :label %>
+  </div>
+  <div class="field">
+    <%= f.label :active %><br>
+    <%= f.check_box :active %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
