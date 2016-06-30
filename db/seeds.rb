@@ -13,3 +13,11 @@ user.email = "dmashuda@ycp.edu"
 user.password = easy_email
 user.password_confirmation = easy_email
 user.save!
+
+
+swe = CareerField.create({label: 'software engineering'})
+swe.keywords.create(label: 'ruby')
+swe.keywords.create(label: 'rails')
+swe.keywords.create(label: 'golang')
+swe.keywords.create(label: 'java')
+
