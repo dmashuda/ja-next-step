@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160623005320) do
+ActiveRecord::Schema.define(version: 20160630031122) do
 
   create_table "profile", force: :cascade do |t|
     t.integer  "stakeholder_id"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20160623005320) do
   create_table "stakeholder", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "name"
   end
 
   create_table "user", force: :cascade do |t|
@@ -49,6 +50,7 @@ ActiveRecord::Schema.define(version: 20160623005320) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.integer  "stakeholder_id"
   end
 
   add_index "user", ["email"], name: "index_user_on_email", unique: true
