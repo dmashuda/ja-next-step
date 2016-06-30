@@ -11,7 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160630033100) do
+ActiveRecord::Schema.define(version: 20160630033514) do
+
+  create_table "CareerField_Keyword", id: false, force: :cascade do |t|
+    t.integer "career_field_id", null: false
+    t.integer "keyword_id",      null: false
+  end
 
   create_table "Keyword_Stakeholder", id: false, force: :cascade do |t|
     t.integer "stakeholder_id", null: false
