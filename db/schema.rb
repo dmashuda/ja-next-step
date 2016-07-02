@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160630033514) do
+ActiveRecord::Schema.define(version: 20160702222340) do
 
   create_table "career_field", force: :cascade do |t|
     t.string   "label"
@@ -78,5 +78,12 @@ ActiveRecord::Schema.define(version: 20160630033514) do
 
   add_index "user", ["email"], name: "index_user_on_email", unique: true
   add_index "user", ["reset_password_token"], name: "index_user_on_reset_password_token", unique: true
+
+  create_table "user_role", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "role"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end
