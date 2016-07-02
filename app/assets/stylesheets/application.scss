@@ -18,12 +18,16 @@
 
 
 .footer {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   width: 100%;
   /* Set the fixed height of the footer here */
   height: 60px;
   line-height: 60px; /* Vertically center the text there */
+}
+
+body > .container {
+  padding: 60px 15px 60px;
 }
 
 .footer > .container {
