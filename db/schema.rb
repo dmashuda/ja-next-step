@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160707224303) do
+ActiveRecord::Schema.define(version: 20160707224652) do
 
   create_table "career_field", force: :cascade do |t|
     t.string   "label"
@@ -51,8 +51,9 @@ ActiveRecord::Schema.define(version: 20160707224303) do
     t.string   "email_subject"
     t.text     "email_body"
     t.boolean  "active"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "stakeholder_id"
   end
 
   create_table "profile", force: :cascade do |t|
