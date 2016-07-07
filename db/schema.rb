@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160707223551) do
+ActiveRecord::Schema.define(version: 20160707224303) do
 
   create_table "career_field", force: :cascade do |t|
     t.string   "label"
@@ -29,6 +29,11 @@ ActiveRecord::Schema.define(version: 20160707223551) do
     t.string   "label"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "keyword_post", id: false, force: :cascade do |t|
+    t.integer "post_id",    null: false
+    t.integer "keyword_id", null: false
   end
 
   create_table "keyword_stakeholder", id: false, force: :cascade do |t|
