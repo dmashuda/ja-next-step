@@ -1,0 +1,232 @@
+body {
+    text-align: center;
+}
+
+.ja-post-min, .ja-post-max {
+    position: relative;
+    display: inline-block;
+
+    max-height: 600px;
+
+    border-radius: 8px;
+
+    border: 1px solid gray;
+    box-shadow: 2px 0px 6px lightgray;
+
+    margin: 10px;
+}
+
+.ja-post-min {
+    max-width: 300px;
+}
+
+.ja-post-max {
+    display: block;
+
+    vertical-align: top;
+
+    max-width: 100%;
+
+    margin: 10px 84px;
+}
+
+.ja-post-header {
+    position: relative;
+}
+
+.ja-post-min .ja-post-header {
+    margin: 6px;
+}
+
+.ja-post-max .ja-post-header {
+    float: right;
+
+    width: 50%;
+
+    border-bottom: 1px solid darkgray;
+}
+
+.ja-post-min .ja-post-header-crop {
+    margin-left: 62px;
+
+    overflow: hidden;
+}
+
+.ja-post-max .ja-post-header-crop {
+    margin: 20px;
+
+    margin-left: 120px;
+}
+
+.ja-post-header-crop a {
+    color: lightgreen;
+
+    white-space: nowrap;
+}
+
+.ja-post-min .ja-post-header-crop a {
+    font-size: 12pt;
+}
+
+.ja-post-max .ja-post-header-crop a {
+    font-size: 18pt;
+}
+
+.ja-post-img-section {
+    position: relative;
+}
+
+.ja-post-max .ja-post-img-section {
+    width: 50%;
+}
+
+.ja-post-logo-img {
+    z-index: 1;
+
+    border-radius: 50%;
+
+    border: 1px solid gray;
+
+    position: absolute;
+}
+
+.ja-post-min .ja-post-logo-img {
+    height: 50px;
+
+    top: 4px;
+    left: 0px;
+}
+
+.ja-post-max .ja-post-logo-img {
+    height: 90px;
+
+    top: 30px;
+    left: 10px;
+}
+
+.ja-post-img {
+    width: 100%;
+
+    z-index: 1;
+}
+
+.ja-post-max .ja-post-img {
+    border-radius: 7px 0px 0px 7px;
+}
+
+.ja-post-img-gradient {
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 45px;
+
+    z-index: 1;
+
+    /*background-color:rgba(0, 0, 0, 0.5);*/
+    background: rgba(0, 0, 0, 0.5); /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75)); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75)); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75)); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75)); /* Standard syntax */
+}
+
+.ja-post-max .ja-post-img-gradient {
+    border-radius: 0px 0px 0px 7px;
+}
+
+.ja-post-icon {
+    position: absolute;
+
+    top: inherit;
+    bottom: 8px;
+
+    color: white;
+    font-size: 20pt;
+}
+
+.ja-post-info {
+    left: 10px;
+}
+
+.ja-post-contact {
+    right: 10px;
+}
+
+.ja-post-body {
+    position: relative;
+}
+
+.ja-post-max .ja-post-body {
+    position: absolute;
+
+    width: 50%;
+
+    float: right;
+
+    top: 72px;
+
+    margin-left: 50%;
+}
+
+.ja-post-subject {
+    border-bottom: 1px solid orange;
+}
+
+.ja-post-min .ja-post-subject {
+    margin: 10px;
+
+    padding-bottom: 10px;
+}
+
+.ja-post-max .ja-post-subject {
+    margin: 20px;
+
+    font-size: 14pt;
+
+    text-align: center;
+
+    padding-bottom: 14px;
+}
+
+.ja-post-subject a {
+    color: darkgreen;
+}
+
+.ja-post-min .ja-post-subject a {
+    font-size: 12pt;
+}
+
+.ja-post-abstract {
+    margin: 10px;
+}
+
+.ja-post-min .ja-post-abstract a {
+    color: gray;
+
+    font-size: 9pt;
+}
+
+.ja-post-close {
+    display: none;
+}
+
+.ja-post-max .ja-post-close {
+    display: block;
+    position: absolute;
+
+    font-size: 18pt;
+    color: gray;
+
+    right: 8px;
+    top: 2px;
+    
+    z-index: 1;
+}
+
+a, a:hover, a:active, a:visited {
+    text-decoration: none;
+}
+
+
