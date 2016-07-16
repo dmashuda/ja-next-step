@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160707224652) do
+ActiveRecord::Schema.define(version: 20160716211125) do
 
   create_table "career_field", force: :cascade do |t|
     t.string   "label"
@@ -51,9 +51,13 @@ ActiveRecord::Schema.define(version: 20160707224652) do
     t.string   "email_subject"
     t.text     "email_body"
     t.boolean  "active"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.integer  "stakeholder_id"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   create_table "profile", force: :cascade do |t|
@@ -70,8 +74,16 @@ ActiveRecord::Schema.define(version: 20160707224652) do
     t.string   "city"
     t.string   "state"
     t.string   "zip"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
+    t.string   "banner_file_name"
+    t.string   "banner_content_type"
+    t.integer  "banner_file_size"
+    t.datetime "banner_updated_at"
   end
 
   create_table "stakeholder", force: :cascade do |t|
