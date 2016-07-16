@@ -9,7 +9,7 @@
           <h4 class="card-title"><%= career_field.label %></h4>
           <p class="card-text">
             <% career_field.keywords.each do |keyword| %>
-                <%= keyword.label %>
+                <li><%= keyword.label %></li>
             <% end %>
           </p>
           <%= link_to 'Show', career_field, class: 'card-link' %>
