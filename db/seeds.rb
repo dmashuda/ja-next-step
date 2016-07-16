@@ -144,6 +144,7 @@ sh_df.users.create(email: 'dmashuda@ycp.edu', password: easy_pass, password_conf
 df_profile = sh_df.build_profile
 df_profile.name = 'Dataforma Inc'
 df_profile.website_url = 'www.dataforma.com'
+df_profile.logo = File.new("#{Rails.root}/db/seedphoto/search.jpg")
 df_profile.save
 
 
