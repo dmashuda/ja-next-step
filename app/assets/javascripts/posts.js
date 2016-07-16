@@ -17,19 +17,6 @@ $(function(){
 		closeMaximizedPost();
 	});
 
-	var body = $("body .container .row");
-	var post = $(".ja-post-min");
-
-	post.attr("id", "-1");
-
-	for(var i = 0;i < 200; i++){
-		var clone = post.clone();
-
-		clone.attr("id", i);
-
-		body.append(clone);
-	}
-
 	function togglePost(post){
 		var postId = post.attr("id");
 
