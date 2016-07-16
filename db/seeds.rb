@@ -138,7 +138,7 @@ architecture_kwd = []
 CareerField.create({active: true, label: 'Architecture and Construction', keywords: architecture_kwd})
 
 
-sh_df = Stakeholder.create(name: 'dataforma', keywords: [])
+sh_df = Stakeholder.create(name: 'Dataforma, Inc', keywords: [])
 sh_df.users.create(email: 'dmashuda@ycp.edu', password: easy_pass, password_confirmation: easy_pass)
 
 df_profile = sh_df.build_profile
