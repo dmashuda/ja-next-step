@@ -5,10 +5,10 @@
         <div class="ja-post-header-crop">
           <a href="#"><%= post.stakeholder.name %></a>
         </div>
-        <img class="ja-post-logo-img" src="assets/ycp.png">
+        <img class="ja-post-logo-img" src="<%= post.stakeholder.profile.logo.url %>">
       </div>
       <div class="ja-post-img-section">
-        <img class="ja-post-img" src="assets/ycp_engineering.jpg">
+        <img class="ja-post-img" src="<%= post.photo.url %>">
         <div class="ja-post-img-gradient">
           <a href="#"><i class="ja-post-icon ja-post-info fa fa-info-circle"></i></a>
           <a href="#"><i class="ja-post-icon ja-post-contact fa fa-envelope"></i></a>

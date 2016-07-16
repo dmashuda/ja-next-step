@@ -98,6 +98,7 @@ body {
 
 .ja-post-min .ja-post-logo-img {
     height: 50px;
+    width: 50px;
 
     top: 4px;
     left: 0px;
@@ -105,6 +106,7 @@ body {
 
 .ja-post-max .ja-post-logo-img {
     height: 80px;
+    width: 80px;
 
     top: 30px;
     left: 10px;
