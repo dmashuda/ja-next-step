@@ -36,7 +36,7 @@ $(function(){
 		post.toggleClass("ja-post-max").toggleClass("ja-post-min");
 
 		$("html, body").animate({
-	        scrollTop: $("#" + postId).offset().top
+	        scrollTop: $("#" + postId).offset().top - 60
 	    }, 1000);
 	}
 

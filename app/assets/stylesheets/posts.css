@@ -27,7 +27,7 @@ body {
 
     max-width: 100%;
 
-    margin: 10px 84px;
+    margin: 10px 100px;
 }
 
 .ja-post-header {
@@ -136,14 +136,15 @@ body {
     border-radius: 0px 0px 0px 7px;
 }
 
-.ja-post-icon {
+.ja-post-icon.fa {
     position: absolute;
 
     top: inherit;
     bottom: 8px;
 
     color: white;
-    font-size: 20pt;
+
+    font-size: 2em;
 }
 
 .ja-post-info {
@@ -181,7 +182,7 @@ body {
 }
 
 .ja-post-max .ja-post-subject {
-    margin: 20px;
+    margin: 30px 20px;
 
     font-size: 14pt;
 
