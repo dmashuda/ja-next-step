@@ -38,9 +38,17 @@ $(function(){
 		$("html, body").animate({
 	        scrollTop: $("#" + postId).offset().top - 60
 	    }, 1000);
+
+        post.find(".ja-post-abstract").toggle();
+        post.find(".ja-post-summary").toggle();
 	}
 
 	function closeMaximizedPost(){
-		$(".ja-post-max").removeClass("ja-post-max").addClass("ja-post-min");
+        var mps = $(".ja-post-max");
+
+        mps.removeClass("ja-post-max").addClass("ja-post-min");
+
+        mps.find(".ja-post-abstract").toggle();
+        mps.find(".ja-post-summary").toggle();
 	}
 });

@@ -46,6 +46,10 @@ body {
     border-bottom: 1px solid darkgray;
 }
 
+.ja-post-header-crop {
+    text-align: left;
+}
+
 .ja-post-min .ja-post-header-crop {
     margin-left: 62px;
 
@@ -59,9 +63,11 @@ body {
 }
 
 .ja-post-header-crop a {
-    color: lightgreen;
-
     white-space: nowrap;
+}
+
+.ja-post-header-crop a, .ja-post-header-crop a:hover, .ja-post-header-crop a:active, .ja-post-header-crop a:visited {
+    color: lightgreen;
 }
 
 .ja-post-min .ja-post-header-crop a {
@@ -98,7 +104,7 @@ body {
 }
 
 .ja-post-max .ja-post-logo-img {
-    height: 90px;
+    height: 80px;
 
     top: 30px;
     left: 10px;
@@ -182,7 +188,7 @@ body {
 }
 
 .ja-post-max .ja-post-subject {
-    margin: 30px 20px;
+    margin: 30px 20px 4px 20px;
 
     font-size: 14pt;
 
@@ -191,7 +197,7 @@ body {
     padding-bottom: 14px;
 }
 
-.ja-post-subject a {
+.ja-post-subject a, .ja-post-subject a:hover, .ja-post-subject a:active, .ja-post-subject a:visited {
     color: darkgreen;
 }
 
@@ -199,14 +205,24 @@ body {
     font-size: 12pt;
 }
 
+.ja-post-max .ja-post-subject a {
+    font-size: 16pt;
+}
+
 .ja-post-abstract {
     margin: 10px;
 }
 
-.ja-post-min .ja-post-abstract a {
+.ja-post-abstract a, .ja-post-summary {
     color: gray;
 
     font-size: 9pt;
+}
+
+.ja-post-summary {
+    height: 156px;
+
+    overflow: auto;
 }
 
 .ja-post-close {
