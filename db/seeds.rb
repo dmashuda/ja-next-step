@@ -8,8 +8,6 @@
 
 easy_pass = "abc123"
 
-kw_ruby = Keyword.create(label: 'ruby')
-
 human_services_kwd = [
     Keyword.create(label: 'Law'),
     Keyword.create(label: 'Public Safety'),
@@ -85,7 +83,7 @@ logistics_kwd = [
     Keyword.create(label: 'Sales'),
     Keyword.create(label: 'Logistics planning'),
     Keyword.create(label: 'Warehousing and Distribution Centers'),
-    Keyword.create(label: 'Supply Chain')
+    Keyword.where(label: 'Supply Chain').first
 ]
 CareerField.create({active: true, label: 'Transportation, Distribution and Logistics', keywords: logistics_kwd})
 
@@ -114,7 +112,7 @@ CareerField.create({active: true, label: 'Business Management', keywords: bus_ma
 
 education_kwd = [
     Keyword.create(label: 'Scholarships'),
-    Keyword.create(label: 'Education'),
+    Keyword.where(label: 'Education').first
 ]
 CareerField.create({active: true, label: 'Furthering Education', keywords: education_kwd})
 
