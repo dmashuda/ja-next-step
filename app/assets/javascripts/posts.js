@@ -18,12 +18,10 @@ $(function(){
 	});
 
 	function togglePost(post){
-		var postId = post.attr("id");
-
 		post.toggleClass("ja-post-max").toggleClass("ja-post-min");
 
 		$("html, body").animate({
-	        scrollTop: $("#" + postId).offset().top - 60
+	        scrollTop: post.offset().top - 60
 	    }, 1000);
 
         post.find(".ja-post-abstract").toggle();

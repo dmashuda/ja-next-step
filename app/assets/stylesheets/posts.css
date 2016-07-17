@@ -57,9 +57,11 @@ body {
 }
 
 .ja-post-max .ja-post-header-crop {
-    margin: 20px;
+    margin: 22px 0px 8px 20px;
 
-    margin-left: 120px;
+    margin-left: 89px;
+
+    overflow: hidden;
 }
 
 .ja-post-header-crop a {
@@ -75,7 +77,7 @@ body {
 }
 
 .ja-post-max .ja-post-header-crop a {
-    font-size: 18pt;
+    font-size: 16pt;
 }
 
 .ja-post-img-section {
@@ -116,6 +118,10 @@ body {
     width: 100%;
 
     z-index: 1;
+}
+
+.ja-post-min .ja-post-img {
+    max-height: 200px;
 }
 
 .ja-post-max .ja-post-img {
@@ -190,7 +196,7 @@ body {
 }
 
 .ja-post-max .ja-post-subject {
-    margin: 30px 20px 4px 20px;
+    margin: 10px 20px 4px 20px;
 
     font-size: 14pt;
 

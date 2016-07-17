@@ -11,7 +11,7 @@
         <img class="ja-post-img" src="<%= post.photo.url %>">
         <div class="ja-post-img-gradient">
           <a href="#"><i class="ja-post-icon ja-post-info fa fa-info-circle"></i></a>
-          <a href="#"><i class="ja-post-icon ja-post-contact fa fa-envelope"></i></a>
+          <a target="contact" href="mailto:<%= post.contact_email %>?body=<%= post.email_body %>&subject=<%= post.email_subject %>"><i class="ja-post-icon ja-post-contact fa fa-envelope"></i></a>
         </div>
       </div>
       <div class="ja-post-body">
