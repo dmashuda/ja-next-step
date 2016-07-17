@@ -7,6 +7,8 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 easy_pass = "abc123"
+post_abstract = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. "
+post_summary = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.\r\nUt wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. \r\nDuis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.', contact_email: 'vincemoley@yahoo.com', email_subject: 'Tell me more', email_body: 'Hello Vince, please tell me more about the YCP Engineering program"
 
 human_services_kwd = [
     Keyword.create(label: 'Law'),
@@ -138,14 +140,25 @@ architecture_kwd = []
 CareerField.create({active: true, label: 'Architecture and Construction', keywords: architecture_kwd})
 
 
-sh_df = Stakeholder.create(name: 'Dataforma, Inc', keywords: [])
+sh_df = Stakeholder.create(name: 'The Mathmatics Association of America', keywords: [])
 sh_df.users.create(email: 'dmashuda@ycp.edu', password: easy_pass, password_confirmation: easy_pass)
 
 df_profile = sh_df.build_profile
-df_profile.name = 'Dataforma Inc'
-df_profile.website_url = 'www.dataforma.com'
-df_profile.logo = File.new("#{Rails.root}/db/seedphoto/search.jpg")
+df_profile.name = 'The Mathmatics Association of America'
+df_profile.website_url = 'http://www.maa.org/'
+df_profile.logo = File.new("#{Rails.root}/db/seedphoto/math-logo.jpg")
+df_profile.banner = File.new("#{Rails.root}/db/seedphoto/math-banner.jpeg")
 df_profile.save
 
+df_post_1 = sh_df.posts.create(subject: 'MAA Dinner', abstract: post_abstract, body: post_summary, active: 1, created_at: '2016/07/14 08:06:00', email_subject: 'MAA Dinner RSVP', email_body: 'I am interested in attending the MAA Dinner', contact_email: 'vince@yahoo.com')
+df_post_2 = sh_df.posts.create(subject: 'MAA Fair', abstract: post_abstract, body: post_summary, active: 1, created_at: '2016/07/14 08:06:00', email_subject: 'MAA Fair Looks Cool', email_body: 'Wow the fair looks cool how can I help?', contact_email: 'vince@yahoo.com')
+df_post_3 = sh_df.posts.create(subject: 'MAA Lesson', abstract: post_abstract, body: post_summary, active: 1, created_at: '2016/07/14 08:06:00', email_subject: 'MAA Lesson Attendance', email_body: 'I will be at the next MAA lession', contact_email: 'vince@yahoo.com')
 
-sh_df.posts.create(subject: 'YCP Engineering Senior Project', abstract: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. ', body: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.\r\nUt wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. \r\nDuis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.', contact_email: 'vincemoley@yahoo.com', email_subject: 'Tell me more', email_body: 'Hello Vince, please tell me more about the YCP Engineering program', active: 1, created_at: '2016/07/14 08:06:00', stakeholder_id: 1)
+df_post_1.photo = File.new("#{Rails.root}/db/seedphoto/math-post-1.jpeg")
+df_post_1.save
+
+df_post_2.photo = File.new("#{Rails.root}/db/seedphoto/math-post-2.jpeg")
+df_post_2.save
+
+df_post_3.photo = File.new("#{Rails.root}/db/seedphoto/math-post-3.jpeg")
+df_post_3.save
