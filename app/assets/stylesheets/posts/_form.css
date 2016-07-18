@@ -1,0 +1,7 @@
+select:not([disabled]) {
+    background-color: white;
+}
+
+select:([disabled]) {
+    background-color: gray;
+}
