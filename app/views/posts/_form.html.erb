@@ -12,6 +12,10 @@
     <% end %>
 
     <div class="field">
+      <%= f.label :stakeholder_id %><br>
+      <%= select(:post, :stakeholder_id, options_from_collection_for_select(Stakeholder.all, :id, :name)) %>
+    </div>
+    <div class="field">
       <%= f.label :subject %><br>
       <%= f.text_field :subject %>
     </div>
