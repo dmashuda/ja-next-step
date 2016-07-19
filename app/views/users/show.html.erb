@@ -1,0 +1,10 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Email:</strong>
+
+  <%= @user.email %>
+</p>
+
+<%= link_to 'Edit', edit_stakeholder_user_path(@stakeholder, @user) %> |
+<%= link_to 'Back', stakeholder_users_path %>
