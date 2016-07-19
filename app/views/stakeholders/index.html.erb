@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Stakeholders</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th >Name</th>
+      <th colspan="3">Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @stakeholders.each do |stakeholder| %>
+      <tr>
+        <td><%= stakeholder.name %></td>
+        <td><%= link_to 'Show', stakeholder %></td>
+        <td><%= link_to 'Edit', edit_stakeholder_path(stakeholder) %></td>
+        <td><%= link_to 'Destroy', stakeholder, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Stakeholder', new_stakeholder_path %>
