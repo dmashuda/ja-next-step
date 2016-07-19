@@ -150,9 +150,9 @@ df_profile.logo = File.new("#{Rails.root}/db/seedphoto/math-logo.jpg")
 df_profile.banner = File.new("#{Rails.root}/db/seedphoto/math-banner.jpeg")
 df_profile.save
 
-df_post_1 = sh_df.posts.create(subject: 'MAA Dinner', abstract: post_abstract, body: post_summary, active: 1, created_at: '2016/07/14 08:06:00', email_subject: 'MAA Dinner RSVP', email_body: 'I am interested in attending the MAA Dinner', contact_email: 'vince@yahoo.com')
-df_post_2 = sh_df.posts.create(subject: 'MAA Fair', abstract: post_abstract, body: post_summary, active: 1, created_at: '2016/07/14 08:06:00', email_subject: 'MAA Fair Looks Cool', email_body: 'Wow the fair looks cool how can I help?', contact_email: 'vince@yahoo.com')
-df_post_3 = sh_df.posts.create(subject: 'MAA Lesson', abstract: post_abstract, body: post_summary, active: 1, created_at: '2016/07/14 08:06:00', email_subject: 'MAA Lesson Attendance', email_body: 'I will be at the next MAA lession', contact_email: 'vince@yahoo.com')
+df_post_1 = sh_df.posts.create(subject: 'MAA Dinner', abstract: post_abstract, body: post_summary, active: true, email_subject: 'MAA Dinner RSVP', email_body: 'I am interested in attending the MAA Dinner', contact_email: 'vince@yahoo.com')
+df_post_2 = sh_df.posts.create(subject: 'MAA Fair', abstract: post_abstract, body: post_summary, active: true, email_subject: 'MAA Fair Looks Cool', email_body: 'Wow the fair looks cool how can I help?', contact_email: 'vince@yahoo.com')
+df_post_3 = sh_df.posts.create(subject: 'MAA Lesson', abstract: post_abstract, body: post_summary, active: true, email_subject: 'MAA Lesson Attendance', email_body: 'I will be at the next MAA lession', contact_email: 'vince@yahoo.com')
 
 df_post_1.photo = File.new("#{Rails.root}/db/seedphoto/math-post-1.jpeg")
 df_post_1.save
