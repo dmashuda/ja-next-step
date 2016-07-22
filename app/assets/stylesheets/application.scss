@@ -16,22 +16,42 @@
  */
 @import "bootstrap";
 
+.bg-jagreen {
+  background-color: #008751;
+}
 
-.footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  /* Set the fixed height of the footer here */
-  height: 60px;
-  line-height: 60px; /* Vertically center the text there */
-  z-index: 2;
+.bg-jagrey {
+  background-color: #626366;
+}
+
+.bg-jalightgreen {
+  background-color: #8cc63e;
+}
+
+.bg-jaorange {
+  background-color: #d59844;
 }
 
 body > .container {
   padding: 60px 15px 60px;
 }
 
-.footer > .container {
-  padding-right: 15px;
-  padding-left: 15px;
+.text-jagreen {
+  color: #008751;
+}
+
+.text-jagrey {
+  color: #626366;
+}
+
+.text-jalightgreen {
+  color: #8cc63e;
+}
+
+.text-jaorange {
+  color: #d59844;
+}
+
+.text-white {
+  color: #ffffff;
 }
