@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = @stakeholder.users.all
+    @users = @stakeholder.users.paginate(:page => params[:page])
   end
 
   # GET /users/1
