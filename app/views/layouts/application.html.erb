@@ -1,32 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>JaNextStep</title>
+  <title>JA NextStep</title>
+  <%= favicon_link_tag 'favicon.ico' %>
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-<nav class="navbar navbar-default navbar-fixed-top bg-primary">
-  <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2">
+
+<nav class="navbar navbar-dark navbar-fixed-top bg-jagreen">
+  <a class="navbar-brand text-center" href="#">
+    <%= image_tag 'ja_logo_small.png'%>
+  </a>
+  <button class="navbar-toggler hidden-sm-up text-jaorange" type="button" data-toggle="collapse" data-target="#mainNavCollapse">
     &#9776;
   </button>
-  <div class="collapse navbar-toggleable-xs" id="exCollapsingNavbar2">
-    <a class="navbar-brand" href="#">Responsive navbar</a>
-    <ul class="nav navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <input class="form-control" placeholder="Start  nding your NextStep opportunities...">
-      </li>
-      <li class="nav-item">
-        <i class="fa fa-search fa-2x" aria-hidden="true"></i>
-      </li>
-      <li class="nav-item">
-        <i class="fa fa-cog fa-spin fa-3x fa-fw" aria-hidden="true"></i>
-      </li>
-    </ul>
+  <div class="collapse navbar-toggleable-xs clearfix" id="mainNavCollapse">
+    <div class="input-group">
+      <input class="form-control input-sm" placeholder="What's your Next Step?" type="text">
+        <div class="btn-group input-group-btn">
+          <button class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" type="button">
+            <i class="fa fa-search"></i>
+          </button>
+          <div class="dropdown-menu dropdown-menu-right">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Separated link</a>
+          </div>
+        </div>
+    </div>
   </div>
 </nav>
 
@@ -40,20 +45,44 @@
   </div>
 </div>
 
-<footer class="footer bg-primary">
-  <span class="text-center">
-  <span> Home </span>
-  <span> Login </span>
-  <span> Business </span>
-  <span> Help </span>
-  <span> About </span>
-  </span>
-  <span class="pull-right">
-  <i class="fa fa-instagram fa-spin fa-2x" aria-hidden="true"></i>
-  <i class="fa fa-facebook fa-spin fa-2x " aria-hidden="true"></i>
-  <i class="fa fa-twitter fa-spin fa-2x" aria-hidden="true"></i>
-  </span>
-</footer>
+<nav class="navbar navbar-fixed-bottom navbar-dark bg-jagreen">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-9">
+        <ul class="nav navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Log In</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Businesses</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Help</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-xs-3">
+        <ul class="nav navbar-nav pull-right text-white">
+          <li class="nav-item active">
+            <i class="fa fa-2x fa-instagram"></i>
+          </li>
+          <li class="nav-item active">
+            <i class="fa fa-2x fa-facebook"></i>
+          </li>
+          <li class="nav-item active">
+            <i class="fa fa-2x fa-twitter"></i>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
 
 </body>
 </html>
