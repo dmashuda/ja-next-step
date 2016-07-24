@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
-  resources :profiles
   resources :posts
   resources :keywords
   resources :career_fields
+
   resources :stakeholders do
     resources :users
+    resource :profile, only: [:show, :edit, :update]
   end
   devise_for :users
 
