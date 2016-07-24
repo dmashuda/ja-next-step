@@ -1,6 +1,5 @@
 class KeywordsController < ApplicationController
   before_action :set_keyword, only: [:show, :edit, :update, :destroy]
-  layout 'jumbo'
 
   # GET /keywords
   # GET /keywords.json
