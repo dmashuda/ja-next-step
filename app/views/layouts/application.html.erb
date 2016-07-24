@@ -37,7 +37,6 @@
 
 <div class="container">
   <div class="row">
-    <p class="notice"><%= notice %></p>
     <% flash.each do |name, msg| %>
         <%= content_tag :div, msg, class: "alert alert-info" %>
     <% end %>
@@ -56,7 +55,11 @@
             <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="/users/sign_in">Log In</a>
+            <% if user_signed_in? %>
+                <%= link_to('Logout', destroy_user_session_path, :method => :delete, :class => 'nav-link',) %>
+            <% else %>
+                <a class="nav-link" href="/users/sign_in">Log In</a>
+          <% end %>
           </li>
           <li class="nav-item active">
             <a class="nav-link" href="/stakeholders">Businesses</a>
