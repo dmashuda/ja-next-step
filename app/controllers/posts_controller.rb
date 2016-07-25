@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:edit, :update, :new, :create, :destroy]
+  prepend_before_action :authenticate_user!, only: [:edit, :update, :new, :create, :destroy]
 
 
   # GET /posts

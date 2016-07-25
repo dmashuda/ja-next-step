@@ -1,5 +1,7 @@
 class CareerFieldsController < ApplicationController
   before_action :set_career_field, only: [:show, :edit, :update, :destroy]
+  prepend_before_action :authenticate_user!
+
 
   # GET /career_fields
   # GET /career_fields.json
