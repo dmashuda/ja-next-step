@@ -1,6 +1,7 @@
 class KeywordsController < ApplicationController
   before_action :set_keyword, only: [:show, :edit, :update, :destroy]
-  layout 'jumbo'
+  prepend_before_action :authenticate_user!
+
 
   # GET /keywords
   # GET /keywords.json

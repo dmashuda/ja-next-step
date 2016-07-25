@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :set_stakeholder
+  prepend_before_action :authenticate_user!
+
 
   # GET /users
   # GET /users.json
@@ -15,7 +17,7 @@ class UsersController < ApplicationController
 
   # GET /users/new
   def new
-    @user = @stakeholder.users.build
+    @user = @stakeholder.users.new(params[:user])
   end
 
   # GET /users/1/edit

@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  prepend_before_action :authenticate_user!, only: [:edit, :update, :new, :create, :destroy]
+
 
   # GET /posts
   # GET /posts.json
@@ -14,7 +16,7 @@ class PostsController < ApplicationController
 
   # GET /posts/new
   def new
-    @post = Post.new
+    @post = current_user.stakeholder.posts.new(params[:post])
   end
 
   # GET /posts/1/edit
