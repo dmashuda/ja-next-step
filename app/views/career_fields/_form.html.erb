@@ -1,6 +1,6 @@
-
 <%= simple_form_for(@career_field) do |f| %>
     <%= f.input :label %>
+    <%= f.association :keywords, label_method: :label, as: :check_boxes %>
     <%= f.input :active %>
 
     <%= f.button :submit %>

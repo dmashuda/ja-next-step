@@ -71,6 +71,6 @@ class CareerFieldsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def career_field_params
-      params.require(:career_field).permit(:label, :active)
+      params.require(:career_field).permit(:label, :active, keyword_ids: [])
     end
 end
