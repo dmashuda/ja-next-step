@@ -14,4 +14,6 @@ class User < ActiveRecord::Base
   def is_stakeholder_admin?
     self.user_roles.find_by_role(UserRole.roles[:stakeholder_admin]).nil?
   end
+
+  self.per_page = 10
 end

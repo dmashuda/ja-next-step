@@ -7,4 +7,6 @@ class Post < ActiveRecord::Base
 
   validates_attachment :photo,
                        content_type: { content_type: ['image/jpeg', 'image/gif', 'image/png'] }
+  self.per_page = 10
+
 end

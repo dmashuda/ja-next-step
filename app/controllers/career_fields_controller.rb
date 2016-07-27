@@ -6,7 +6,7 @@ class CareerFieldsController < ApplicationController
   # GET /career_fields
   # GET /career_fields.json
   def index
-    @career_fields = CareerField.all
+    @career_fields = CareerField.paginate(:page => params[:page])
   end
 
   # GET /career_fields/1
