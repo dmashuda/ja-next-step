@@ -1,0 +1,62 @@
+
+<p>
+  <%= image_tag @profile.logo.url %>
+</p>
+
+<p>
+  <%= image_tag @profile.banner.url %>
+</p>
+
+
+<p>
+  <strong>Name:</strong>
+  <%= @profile.name %>
+</p>
+
+<p>
+  <strong>Website:</strong>
+  <%= @profile.website_url %>
+</p>
+
+<p>
+  <strong>Facebook:</strong>
+  <%= @profile.facebook_url %>
+</p>
+
+<p>
+  <strong>Youtube:</strong>
+  <%= @profile.youtube_url %>
+</p>
+
+<p>
+  <strong>Twitter:</strong>
+  <%= @profile.twitter_url %>
+</p>
+
+<p>
+  <strong>Instagram:</strong>
+  <%= @profile.instagram_url %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @profile.email %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @profile.phone %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @profile.street %>
+  <%= @profile.city %>
+  <%= @profile.state %>
+  <%= @profile.zip %>
+</p>
+
+
+
+
+<%= link_to 'Edit', edit_stakeholder_profile_path(@profile), class: 'btn btn-info' %>

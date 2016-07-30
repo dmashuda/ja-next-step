@@ -1,0 +1,96 @@
+.ja-profile {
+    position: relative;
+}
+
+.ja-profile-close {
+    position: absolute;
+
+    top: 4px;
+    right: 8px;
+
+    font-size: 12pt;
+
+    color: white;
+}
+
+.ja-profile, .ja-profile-banner {
+    max-width: 1024px;
+}
+
+.ja-profile-banner {
+    border-radius: 10px 10px 0px 0px;
+}
+
+
+.ja-profile-logo {
+    position: absolute;
+
+    left: 120px;
+    top: 120px;
+
+    height: 200px;
+
+    border-radius: 50%;
+
+    z-index: 1;
+}
+
+.ja-profile-body {
+    position: relative;
+}
+
+.ja-profile-body-left {
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 450px;
+
+    border: 1px solid red;
+}
+
+.ja-profile-body-left-about {
+    margin-top: 78px;
+}
+
+.ja-profile-body-left-title {
+    font-size: 14pt;
+    font-weight: bold;
+
+    color: green;
+
+    padding-bottom: 10px;
+}
+
+.ja-profile-body-left-gray {
+    font-size: 12pt;
+
+    color: grey;
+}
+
+.ja-profile-body-left-phone {
+    padding-top: 10px;
+}
+
+.ja-profile-body-left-website {
+    padding-top: 10px;
+}
+
+.ja-profile-body-right {
+    position: absolute;
+
+    left: 449px;
+    top: 0;
+
+    width: 575px;
+    height: 200px;
+
+    border: 1px solid red;
+}
+
+.ja-profile i.fa {
+    padding: 10px 14px;
+
+    color: lightgreen;
+}

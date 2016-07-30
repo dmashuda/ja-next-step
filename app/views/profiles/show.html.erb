@@ -1,62 +1,25 @@
+<div class="ja-profile">
+  <div class="ja-profile-close">X</div>
+  <img class="ja-profile-banner" src="<%= @profile.banner.url %>">
+  <img class="ja-profile-logo" src="<%= @profile.logo.url %>">
+  <div class="ja-profile-body">
+    <div class="ja-profile-body-left">
+      <div class="ja-profile-body-left-about">
+        <div class="ja-profile-body-left-title">About Us</div>
+        <div class="ja-profile-body-left-gray ja-profile-body-left-addr"><%= @profile.street %></div>
+        <div class="ja-profile-body-left-gray ja-profile-body-left-addr"><%= @profile.city %>, <%= @profile.state %> <%= @profile.zip %></div>
+        <div class="ja-profile-body-left-gray ja-profile-body-left-phone"><%= @profile.phone %></div>
+        <div class="ja-profile-body-left-gray ja-profile-body-left-website"><%= @profile.website_url %></div>
+        <i class="fa fa-2x fa-instagram"></i>
+        <i class="fa fa-2x fa-facebook"></i>
+        <i class="fa fa-2x fa-twitter"></i>
+      </div>
+    </div>
+    <div class="ja-profile-body-right">
 
-<p>
-  <%= image_tag @profile.logo.url %>
-</p>
+    </div>
+    <div class="ja-profile-posts">
 
-<p>
-  <%= image_tag @profile.banner.url %>
-</p>
-
-
-<p>
-  <strong>Name:</strong>
-  <%= @profile.name %>
-</p>
-
-<p>
-  <strong>Website:</strong>
-  <%= @profile.website_url %>
-</p>
-
-<p>
-  <strong>Facebook:</strong>
-  <%= @profile.facebook_url %>
-</p>
-
-<p>
-  <strong>Youtube:</strong>
-  <%= @profile.youtube_url %>
-</p>
-
-<p>
-  <strong>Twitter:</strong>
-  <%= @profile.twitter_url %>
-</p>
-
-<p>
-  <strong>Instagram:</strong>
-  <%= @profile.instagram_url %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @profile.email %>
-</p>
-
-<p>
-  <strong>Phone:</strong>
-  <%= @profile.phone %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @profile.street %>
-  <%= @profile.city %>
-  <%= @profile.state %>
-  <%= @profile.zip %>
-</p>
-
-
-
-
-<%= link_to 'Edit', edit_stakeholder_profile_path(@profile), class: 'btn btn-info' %>
+    </div>
+  </div>
+</div>
