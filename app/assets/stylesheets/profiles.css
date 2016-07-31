@@ -40,12 +40,10 @@
 }
 
 .ja-profile-body-left {
-    position: absolute;
+    display: inline-block;
+    vertical-align: top;
 
-    left: 0;
-    top: 0;
-
-    width: 450px;
+    width: 440px;
 
     border: 1px solid red;
 }
@@ -69,13 +67,10 @@
 }
 
 .ja-profile-body-right {
-    position: absolute;
+    display: inline-block;
+    vertical-align: top;
 
-    left: 449px;
-    top: 0;
-
-    width: 575px;
-    height: 200px;
+    width: 695px;
 
     border: 1px solid red;
 }
