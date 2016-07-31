@@ -6,7 +6,7 @@ class CareerFieldsController < ApplicationController
   # GET /career_fields
   # GET /career_fields.json
   def index
-    @career_fields = CareerField.all
+    @career_fields = CareerField.paginate(:page => params[:page])
   end
 
   # GET /career_fields/1
@@ -71,6 +71,6 @@ class CareerFieldsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def career_field_params
-      params.require(:career_field).permit(:label, :active)
+      params.require(:career_field).permit(:label, :active, keyword_ids: [])
     end
 end

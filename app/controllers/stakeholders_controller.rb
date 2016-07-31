@@ -6,7 +6,7 @@ class StakeholdersController < ApplicationController
   # GET /stakeholders
   # GET /stakeholders.json
   def index
-    @stakeholders = Stakeholder.all
+    @stakeholders = Stakeholder.paginate(:page => params[:page])
   end
 
   # GET /stakeholders/1
