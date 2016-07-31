@@ -6,7 +6,7 @@ class KeywordsController < ApplicationController
   # GET /keywords
   # GET /keywords.json
   def index
-    @keywords = Keyword.all
+    @keywords = Keyword.paginate(:page => params[:page])
   end
 
   # GET /keywords/1

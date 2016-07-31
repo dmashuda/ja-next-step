@@ -25,6 +25,9 @@ ActiveRecord::Schema.define(version: 20160716211125) do
     t.integer "keyword_id",      null: false
   end
 
+  add_index "career_field_keyword", ["career_field_id", "keyword_id"], name: "index_career_field_keyword_on_career_field_id_and_keyword_id"
+  add_index "career_field_keyword", ["keyword_id", "career_field_id"], name: "index_career_field_keyword_on_keyword_id_and_career_field_id"
+
   create_table "keyword", force: :cascade do |t|
     t.string   "label"
     t.datetime "created_at", null: false
@@ -36,10 +39,16 @@ ActiveRecord::Schema.define(version: 20160716211125) do
     t.integer "keyword_id", null: false
   end
 
+  add_index "keyword_post", ["keyword_id", "post_id"], name: "index_keyword_post_on_keyword_id_and_post_id"
+  add_index "keyword_post", ["post_id", "keyword_id"], name: "index_keyword_post_on_post_id_and_keyword_id"
+
   create_table "keyword_stakeholder", id: false, force: :cascade do |t|
     t.integer "stakeholder_id", null: false
     t.integer "keyword_id",     null: false
   end
+
+  add_index "keyword_stakeholder", ["keyword_id", "stakeholder_id"], name: "index_keyword_stakeholder_on_keyword_id_and_stakeholder_id"
+  add_index "keyword_stakeholder", ["stakeholder_id", "keyword_id"], name: "index_keyword_stakeholder_on_stakeholder_id_and_keyword_id"
 
   create_table "post", force: :cascade do |t|
     t.string   "subject"
