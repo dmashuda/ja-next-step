@@ -1,7 +1,3 @@
-body {
-    background-color: lightgray !important;
-}
-
 .ja-profile {
     position: relative;
 
@@ -12,8 +8,11 @@ body {
 
     left: 0;
     right: 0;
+
     margin-left: auto;
     margin-right: auto;
+
+    margin-bottom: 50px;
 
     background-color: white;
 }
@@ -113,12 +112,30 @@ body {
     padding: 2px 0px;
 }
 
+.ja-profile-posts {
+    position: relative;
+}
+
+.ja-profile i.fa.fa-chevron-left, .ja-profile i.fa.fa-chevron-right {
+    position: absolute;
+
+    top: 0;
+
+    height: 400px;
+    vertical-align: top;
+    padding: 200px 0px 0px 0px;
+}
+
+.ja-profile i.fa.fa-chevron-left {
+    left: 10px;
+}
+
+.ja-profile i.fa.fa-chevron-right {
+    right: 10px;
+}
+
 .ja-profile i.fa {
     padding: 10px 14px;
 
     color: lightgreen;
-}
-
-.test-border {
-    border: 1px solid red;
 }

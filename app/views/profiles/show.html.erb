@@ -27,4 +27,38 @@
     <div class="col-md-2 ja-profile-title">Company Posts</div>
     <hr class="col-md-5"/>
   </div>
+  <div class="ja-profile-posts">
+    <a href="#">
+      <i class="fa fa-chevron-left"></i>
+    </a>
+    <% @posts.each do |post| %>
+        <div class="ja-post ja-post-min">
+          <a class="ja-post-close" href="#">X</a>
+          <div class="ja-post-header">
+            <div class="ja-post-header-crop">
+              <a href="#"><%= post.stakeholder.name %></a>
+            </div>
+            <img class="ja-post-logo-img" src="<%= post.stakeholder.profile.logo.url %>">
+          </div>
+          <div class="ja-post-img-section">
+            <img class="ja-post-img" src="<%= post.photo.url %>">
+            <div class="ja-post-img-gradient">
+              <a href="#"><i class="ja-post-icon ja-post-info fa fa-info-circle"></i></a>
+              <a target="contact" href="mailto:<%= post.contact_email %>?body=<%= post.email_body %>&subject=<%= post.email_subject %>"><i class="ja-post-icon ja-post-contact fa fa-envelope"></i></a>
+            </div>
+          </div>
+          <div class="ja-post-body">
+            <div class="ja-post-subject"><a href="#"><%= post.subject %></a></div>
+            <div class="ja-post-abstract">
+              <a href="#"><%= post.abstract %></a>
+            </div>
+            <div class="ja-post-summary" style="display: none"><%= post.body %></div>
+          </div>
+        </div>
+    <% end %>
+    <a href="#">
+      <i class="fa fa-chevron-right"></i>
+    </a>
+
+  </div>
 </div>
