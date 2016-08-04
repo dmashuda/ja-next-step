@@ -10,8 +10,10 @@
       <div class="ja-post-img-section">
         <img class="ja-post-img" src="<%= post.photo.url %>">
         <div class="ja-post-img-gradient">
-          <a href="#"><i class="ja-post-icon ja-post-info fa fa-info-circle"></i></a>
-          <a target="contact" href="mailto:<%= post.contact_email %>?body=<%= post.email_body %>&subject=<%= post.email_subject %>"><i class="ja-post-icon ja-post-contact fa fa-envelope"></i></a>
+          <a href="#" class="ja-post-info ja-post-icon-link"><i class="ja-post-icon fa fa-info-circle"></i></a>
+          <a target="contact" class="ja-post-contact ja-post-icon-link" href="mailto:<%= post.contact_email %>?body=<%= post.email_body %>&subject=<%= post.email_subject %>">
+            <i class="ja-post-icon fa fa-envelope"></i>
+          </a>
         </div>
       </div>
       <div class="ja-post-body">

@@ -17,6 +17,8 @@ $(function(){
 		closeMaximizedPost();
 	});
 
+
+
 	function togglePost(post){
 		post.toggleClass("ja-post-max").toggleClass("ja-post-min");
 

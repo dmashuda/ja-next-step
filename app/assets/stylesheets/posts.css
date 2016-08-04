@@ -147,7 +147,7 @@
     border-radius: 0px 0px 0px 7px;
 }
 
-.ja-post .ja-post-icon.fa {
+.ja-post .ja-post-icon-link {
     position: absolute;
 
     top: inherit;
