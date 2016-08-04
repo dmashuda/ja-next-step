@@ -6,7 +6,7 @@ class ProfilesController < ApplicationController
   # GET /profiles/1
   # GET /profiles/1.json
   def show
-    @posts = @stakeholder.posts.where(active: "t").order(:created_at).first(3)
+    @posts = @stakeholder.posts.where(active: "t").order(:created_at).first(25)
   end
 
   # GET /profiles/1/edit

@@ -2,8 +2,6 @@
     position: relative;
     display: inline-block;
 
-    max-height: 600px;
-
     border-radius: 8px;
 
     border: 1px solid gray;
@@ -14,6 +12,8 @@
 
 .ja-post-min {
     max-width: 300px;
+
+    max-height: 600px;
 }
 
 .ja-post-max {
@@ -22,8 +22,9 @@
     vertical-align: top;
 
     max-width: 100%;
+    max-height: 400px;
 
-    margin: 10px 100px;
+    margin: 10px 42px;
 }
 
 .ja-post-header {
@@ -173,6 +174,7 @@
     position: absolute;
 
     width: 50%;
+    height: 180px;
 
     float: right;
 
@@ -224,7 +226,7 @@
 }
 
 .ja-post-summary {
-    height: 156px;
+    height: 100%;
 
     overflow: auto;
 

@@ -114,6 +114,10 @@
 
 .ja-profile-posts {
     position: relative;
+
+    height: 425px;
+
+    overflow: hidden;
 }
 
 .ja-profile i.fa.fa-chevron-left, .ja-profile i.fa.fa-chevron-right {
@@ -126,16 +130,22 @@
     padding: 200px 0px 0px 0px;
 }
 
-.ja-profile i.fa.fa-chevron-left {
+.ja-profile .ja-profile-posts i.fa.fa-chevron-left {
     left: 10px;
 }
 
-.ja-profile i.fa.fa-chevron-right {
+.ja-profile .ja-profile-posts i.fa.fa-chevron-right {
     right: 10px;
+}
+
+.ja-profile .ja-profile-posts .ja-profile-post-hidden {
+    display: none;
 }
 
 .ja-profile i.fa {
     padding: 10px 14px;
 
     color: lightgreen;
+
+    z-index: 1;
 }

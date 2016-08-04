@@ -1,5 +1,5 @@
 $(function(){
-	$("body .container .row").on("click", ".ja-post-header, .ja-post-subject, .ja-post-abstract, .ja-post-close", function(e){
+	$("body .container .row").on("click", ".ja-post-header a, .ja-post-subject a, .ja-post-abstract a, .ja-post-close", function(e){
 		var post = $(this).closest(".ja-post-min, .ja-post-max");
 
 		togglePost(post);
