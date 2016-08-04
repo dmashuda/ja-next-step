@@ -6,10 +6,6 @@ class ProfilesController < ApplicationController
   # GET /profiles/1.json
   def show
     @posts = @stakeholder.posts.where(active: "t").order(:created_at).first(20)
-
-    respond_to do |format|
-      format.json { render :json => @profile.as_json(:methods => [:banner, :logo]) }
-    end
   end
 
   # GET /profiles/1/edit

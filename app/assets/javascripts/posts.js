@@ -33,7 +33,9 @@ $(function(){
             clone.find(".ja-profile-body-left-street").text(data.street);
             clone.find(".ja-profile-body-left-city").text(data.city + ", " + data.state + " " + data.zip);
             clone.find(".ja-profile-body-left-phone").text(data.phone);
-            clone.find(".ja-profile-body-left-website").text(data.website);
+            clone.find(".ja-profile-body-left-website")
+                .text(data.website_url)
+                .attr("href", data.website_url);
             clone.find(".ja-profile-body-right-about-us").text(data.about_us);
 
             $("body").append(modal.append(clone));
