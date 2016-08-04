@@ -1,4 +1,5 @@
 <%= render 'shared_index' %>
+<%= render :file => '/profiles/_shared_show.html.erb', :layout => false %>
 <div>
   <%= will_paginate @posts%>
 </div>

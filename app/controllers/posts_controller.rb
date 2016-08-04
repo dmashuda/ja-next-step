@@ -7,6 +7,9 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @posts = Post.paginate(:page => params[:page], :per_page => 20)
+
+    # temporary placeholder
+    @profile = Profile.new
   end
 
   # GET /posts/1

@@ -17,7 +17,28 @@ $(function(){
 		closeMaximizedPost();
 	});
 
+    $("body .container .row").on("click", ".ja-post-info.ja-post-icon-link", function(e){
+        var stakeholderId = $(this).attr("stakeholderId");
+        var url = "/stakeholders/" + stakeholderId + "/profile.json";
+        var profileTemplate = $(".ja-profile.ja-profile-template");
+        var modal = $("<div class='ja-modal'></div>");
 
+        $.getJSON(url, function(data){
+            var clone = profileTemplate.clone();
+
+            clone.removeClass("ja-profile-template ja-profile-hide");
+
+            clone.find(".ja-profile-banner").attr("src", data.banner);
+            clone.find(".ja-profile-logo").attr("src", data.logo);
+            clone.find(".ja-profile-body-left-street").text(data.street);
+            clone.find(".ja-profile-body-left-city").text(data.city + ", " + data.state + " " + data.zip);
+            clone.find(".ja-profile-body-left-phone").text(data.phone);
+            clone.find(".ja-profile-body-left-website").text(data.website);
+            clone.find(".ja-profile-body-right-about-us").text(data.about_us);
+
+            $("body").append(modal.append(clone));
+        });
+    });
 
 	function togglePost(post){
 		post.toggleClass("ja-post-max").toggleClass("ja-post-min");

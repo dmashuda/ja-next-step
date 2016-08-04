@@ -2,11 +2,14 @@ class ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :edit, :update]
   prepend_before_action :authenticate_user!, only: [:edit, :update]
 
-
   # GET /profiles/1
   # GET /profiles/1.json
   def show
-    @posts = @stakeholder.posts.where(active: "t").order(:created_at).first(25)
+    @posts = @stakeholder.posts.where(active: "t").order(:created_at).first(20)
+
+    respond_to do |format|
+      format.json { render :json => @profile.as_json(:methods => [:banner, :logo]) }
+    end
   end
 
   # GET /profiles/1/edit

@@ -138,7 +138,7 @@
     right: 10px;
 }
 
-.ja-profile .ja-profile-posts .ja-profile-post-hidden {
+.ja-profile .ja-profile-posts .ja-profile-post-hidden, .ja-profile.ja-profile-hide {
     display: none;
 }
 
