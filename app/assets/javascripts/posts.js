@@ -38,6 +38,9 @@ $(function(){
 
             ele.remove();
         })
+        .on("click", profileNotTemplateSelector, function(e){
+            e.stopPropagation();
+        })
         .on("click", profilePagingPrevSelector, function(e){
             handleProfilePageClick(e);
 
