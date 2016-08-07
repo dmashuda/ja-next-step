@@ -44,11 +44,19 @@ $(function(){
         .on("click", profilePagingPrevSelector, function(e){
             handleProfilePageClick(e);
 
-            hiddenProfilePosts().slice(0, 3).show().each(function(idx){
+            var sliceCount = 3;
+
+            hiddenProfilePosts().slice(-sliceCount).show().each(function(idx){
                 var post = $(this);
                 var duration = 1000;
 
+                post.show();
+
                 slideProiflePost(post, "0px", duration);
+
+                if((idx+1) >= sliceCount){
+                    determineProfilePaging();
+                }
             });
 
             determineProfilePaging();
@@ -56,17 +64,21 @@ $(function(){
         .on("click", profilePagingNextSelector, function(e){
             handleProfilePageClick(e);
 
-            visibleProfilePosts().slice(0, 3).each(function(idx){
+            var sliceCount = 3;
+
+            visibleProfilePosts().slice(0, sliceCount).each(function(idx){
                 var post = $(this);
                 var distance = -342 * (idx + 1);
                 var duration = 1000;
 
                 slideProiflePost(post, distance + "px", duration, function(){
                     $(this).hide();
+
+                    if((idx+1) >= sliceCount){
+                        determineProfilePaging();
+                    }
                 });
             });
-
-            determineProfilePaging();
         })
         .on("click", function(e){
             handleProfileMaximizedPost();
@@ -112,11 +124,15 @@ $(function(){
         var profilePagePrev = $(profileNotTemplateSelector + " " + profilePagingPrevSelector);
 
         if(visibleProfilePosts().length < 3){
-            profilePageNext.toggle();
+            profilePageNext.hide();
+        } else {
+            profilePageNext.show();
         }
 
         if(hiddenProfilePosts().length < 3){
-            profilePagePrev.toggle();
+            profilePagePrev.hide();
+        } else {
+            profilePagePrev.show();
         }
     }
 
