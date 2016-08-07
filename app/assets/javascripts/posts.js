@@ -205,7 +205,15 @@ $(function(){
 	function togglePost(post){
 	    var profile = post.parents(".ja-profile");
 
-		post.toggleClass("ja-post-max").toggleClass("ja-post-min");
+        if(post.hasClass("ja-post-min")){
+            var existingMaxdPost = $(".ja-post-max");
+
+            if(existingMaxdPost.length == 1){
+                togglePostAttrs(existingMaxdPost);
+            }
+        }
+
+        togglePostAttrs(post);
 
         if(profile.length == 0){
             $("html, body").animate({
@@ -222,10 +230,14 @@ $(function(){
                 profile.find(".ja-post:not(.ja-profile-post-max)").addClass(hiddenProfileSelector);
             }
         }
+	}
+
+	function togglePostAttrs(post){
+        post.toggleClass("ja-post-max").toggleClass("ja-post-min");
 
         post.find(".ja-post-abstract").toggle();
         post.find(".ja-post-summary").toggle();
-	}
+    }
 
 	function closeMaximizedPost(){
         var mps = $(".ja-post-max");
