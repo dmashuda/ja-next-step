@@ -12,6 +12,8 @@
     <%= f.input :active %>
     <%= f.file_field :photo %>
 
+    <%= f.association :keywords, label_method: :label, as: :check_boxes %>
+
     <%= f.button :submit %>
 <% end %>
 
