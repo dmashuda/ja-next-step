@@ -61,3 +61,32 @@ body > .container {
 .text-white {
   color: #ffffff;
 }
+
+#mainNavCollapse .input-group {
+  position: relative;
+}
+
+#keyword-search-results {
+  position: absolute;
+  left: 0px;
+  top: 37px;
+  right: 70px;
+  background-color: white;
+  border: 1px solid lightgray;
+  max-height: 300px;
+  overflow: auto;
+  text-align: left;
+}
+
+.keyword-search-result {
+  font-size: 14pt;
+  padding: 4px;
+}
+
+.keyword-search-result-highlighted, .keyword-search-result:hover {
+  background-color: yellow;
+}
+
+.keyword-search-result:hover {
+  cursor: pointer;
+}
