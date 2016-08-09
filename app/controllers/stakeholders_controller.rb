@@ -1,5 +1,6 @@
 class StakeholdersController < ApplicationController
   before_action :set_stakeholder, only: [:show, :edit, :update, :destroy]
+  prepend_before_action :admin_only, only: [:edit, :update, :new, :create, :destroy]
   prepend_before_action :authenticate_user!, only: [:edit, :update, :new, :create, :destroy]
 
 

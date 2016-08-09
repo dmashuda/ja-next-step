@@ -141,7 +141,9 @@ architecture_kwd = []
 CareerField.create({active: true, label: 'Architecture and Construction', keywords: architecture_kwd})
 
 sh_df = Stakeholder.create(name: 'The Mathmatics Association of America', keywords: [])
-sh_df.users.create(email: 'dmashuda@ycp.edu', password: easy_pass, password_confirmation: easy_pass)
+default_admin = sh_df.users.create(email: 'dmashuda@ycp.edu', password: easy_pass, password_confirmation: easy_pass)
+default_admin.user_roles.create(role: UserRole.roles[:stakeholder_admin])
+default_admin.user_roles.create(role: UserRole.roles[:admin])
 sh_df.create_profile(name: 'The Mathmatics Association of America', email: 'contact@maa.org', website_url: 'http://www.maa.org/', logo: File.new("#{Rails.root}/db/seedphoto/math-logo.jpg"), banner: File.new("#{Rails.root}/db/seedphoto/math-banner.jpg"), street: "1529 18th St. NW", city: "Washington", state: "District of Columbia", zip: "20036-1358", phone: "(800) 741-9415", about_us: profile_about_us)
 
 for i in 0...50
