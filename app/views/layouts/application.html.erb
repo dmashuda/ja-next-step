@@ -17,22 +17,32 @@
     &#9776;
   </button>
   <div class="collapse navbar-toggleable-xs clearfix" id="mainNavCollapse">
-    <div class="input-group">
-      <input class="form-control input-sm" placeholder="What's your Next Step?" type="text">
-      <div class="btn-group input-group-btn">
-        <button class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" type="button">
-          <i class="fa fa-search"></i>
-        </button>
-        <div class="dropdown-menu dropdown-menu-right">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Separated link</a>
+    <form>
+      <div class="input-group">
+
+        <% @keywords.each do |keyword| %>
+            <div class="selected-keyword template" style="display: table-cell;" keywordId="<%= keyword.id %>"><%= keyword.label %>
+              <i class='fa fa-times'></i>
+              <input type="hidden" name="keyword_ids[]" value="<%= keyword.id %>"/>
+            </div>
+        <% end %>
+
+        <input class="form-control input-sm" placeholder="What's your Next Step?" type="text">
+        <div class="btn-group input-group-btn">
+          <button class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" type="button">
+            <i class="fa fa-search"></i>
+          </button>
+          <div class="dropdown-menu dropdown-menu-right">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Separated link</a>
+          </div>
         </div>
+        <div id="keyword-search-results"></div>
       </div>
-      <div id="keyword-search-results"></div>
-    </div>
+    </form>
   </div>
 </nav>
 
@@ -102,5 +112,6 @@
 </nav>
 
 </body>
+<div class="selected-keyword template" keywordId=""><i class='fa fa-times'></i></div>
 </html>
 

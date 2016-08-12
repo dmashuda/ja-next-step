@@ -64,9 +64,17 @@ body > .container {
 
 #mainNavCollapse .input-group {
   position: relative;
+
+  background-color: white;
+
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+
+  border-spacing: 2px 1px;
 }
 
 #keyword-search-results {
+  display: none;
   position: absolute;
   left: 0px;
   top: 37px;
@@ -89,4 +97,29 @@ body > .container {
 
 .keyword-search-result:hover {
   cursor: pointer;
+}
+
+.selected-keyword {
+  display: none;
+
+  width: 1%;
+  vertical-align: middle;
+  padding: 0px 10px;
+
+  border: 1px solid lightgray;
+  border-radius: 8px;
+
+  white-space: nowrap;
+}
+
+.selected-keyword .fa.fa-times {
+  padding-left: 8px;
+}
+
+.selected-keyword .fa.fa-times:hover {
+  cursor: pointer;
+}
+
+.form-control.input-sm {
+  border: none;
 }

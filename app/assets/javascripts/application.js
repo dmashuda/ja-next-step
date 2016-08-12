@@ -24,13 +24,26 @@ $(function(){
 
     var searchResultHighlightedSelector = "keyword-search-result-highlighted";
     var searchResultSelector = "keyword-search-result";
+    var selectedKeywordSelector = ".selected-keyword";
+    var removeSelectedKeywordSelector = selectedKeywordSelector + " .fa.fa-times";
 
     var timeoutId = null;
 
     keywordSearch.focus();
 
+    $("body").on("click", function(){
+        searchResults.empty().hide();
+    })
+    .on("click", removeSelectedKeywordSelector, function(){
+        $(this).parent().remove();
+
+        keywordSearch.closest("form").submit();
+    })
+    ;
+
     keywordSearch.on("keyup", function(e){
         var highlighted = searchResults.find("." + searchResultHighlightedSelector);
+        var resultTop;
 
         if(e.which == 40){ // down
             if(highlighted.length == 0){
@@ -39,23 +52,52 @@ $(function(){
                 highlighted.removeClass(searchResultHighlightedSelector);
 
                 highlighted.next().addClass(searchResultHighlightedSelector);
+
+                resultTop = highlighted.next().position().top;
             }
         } else if(e.which == 38) { // up
-            if(highlighted.length == 0){
-                searchResults.find("." + searchResultSelector + ":last").addClass(searchResultHighlightedSelector);
-            } else if(highlighted.prev().length != 0) {
+            if(highlighted.prev().length != 0) {
                 highlighted.removeClass(searchResultHighlightedSelector);
 
                 highlighted.prev().addClass(searchResultHighlightedSelector);
-            }
-        } else if(e.which == 13) {
 
-        } else {
+                resultTop = highlighted.prev().position().top;
+            }
+        } else if(e.which != 13) {
             queueSearch();
         }
-    })
-    keywordSearch.on("click", "." + searchResultSelector, function(e){
 
+        if(resultTop > searchResults.height() || resultTop < searchResults.scrollTop()) {
+            searchResults.scrollTop(resultTop + searchResults.scrollTop());
+        }
+    })
+    .on("keydown", function(e){
+        if(e.which == 13) {
+            e.preventDefault();
+        }
+    })
+    ;
+
+    searchResults.on("click", "." + searchResultSelector, function(e){
+        var selected = $(this);
+        var keywordId = selected.attr("keywordId");
+        var selectedKeyword = $(selectedKeywordSelector + ".template").clone();
+
+        selectedKeyword.removeClass("template");
+        selectedKeyword.css("display", "table-cell");
+        selectedKeyword.attr("keywordId", keywordId);
+        selectedKeyword.prepend(selected.text());
+
+        selectedKeyword.append($("<input type='hidden' name='keyword_ids[]' value='" + keywordId + "'>"));
+
+        keywordSearch.before(selectedKeyword);
+
+        keywordSearch.closest("form").submit();
+    })
+    .on("mouseover", "." + searchResultSelector,function(e){
+        searchResults.find("." + searchResultHighlightedSelector).removeClass(searchResultHighlightedSelector);
+
+        $(this).addClass(searchResultHighlightedSelector);
     })
     ;
 
@@ -64,7 +106,7 @@ $(function(){
             clearTimeout(timeoutId);
         }
 
-        timeoutId = setTimeout(search, 1500);
+        timeoutId = setTimeout(search, 1000);
     }
 
     function search(){
@@ -86,10 +128,12 @@ $(function(){
                     return "<b>" + $1 + "</b>"
                 });
 
-                var result = $("<div class='" + searchResultSelector + "'>" + label + "</div>");
+                var result = $("<div keywordId='" + id + "' class='" + searchResultSelector + "'>" + label + "</i></div>");
 
                 searchResults.append(result);
             }
+
+            searchResults.show();
         });
     }
 })
