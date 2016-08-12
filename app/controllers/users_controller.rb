@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :set_stakeholder
+  prepend_before_action :stakeholder_admin_only
   prepend_before_action :authenticate_user!
 
 

@@ -1,5 +1,6 @@
 class KeywordsController < ApplicationController
   before_action :set_keyword, only: [:show, :edit, :update, :destroy]
+  prepend_before_action :admin_only
   prepend_before_action :authenticate_user!, :except => [:show, :index]
 
 

@@ -1,5 +1,6 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :edit, :update]
+  prepend_before_action :stakeholder_admin_only, only: [:edit, :update]
   prepend_before_action :authenticate_user!, only: [:edit, :update]
 
   # GET /profiles/1
