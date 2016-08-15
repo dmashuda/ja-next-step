@@ -41,6 +41,12 @@ $(function(){
     })
     ;
 
+    $(".dropdown-item").on("click", function(e){
+       e.preventDefault();
+
+        $(this).closest("form").submit();
+    });
+
     keywordSearch.on("keyup", function(e){
         var highlighted = searchResults.find("." + searchResultHighlightedSelector);
         var resultTop;
