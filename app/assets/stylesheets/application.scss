@@ -99,17 +99,34 @@ body > .container {
   cursor: pointer;
 }
 
-.selected-keyword {
-  display: none;
+.selected-keyword-form {
+  padding-top: 4px;
+}
 
-  width: 1%;
-  vertical-align: middle;
-  padding: 0px 10px;
+.selected-keyword.template {
+  display: none;
+}
+
+.selected-keyword {
+  display: inline-block;
+
+  padding: 4px 10px;
+  margin: 1px;
 
   border: 1px solid lightgray;
+  background-color: white;
   border-radius: 8px;
 
   white-space: nowrap;
+}
+
+.selected-keyword.clear-all {
+  position: absolute;
+  display: block;
+  z-index: 3000;
+  top: 0;
+  right: 74px;
+  padding: 6px 12px;
 }
 
 .selected-keyword .fa.fa-times {

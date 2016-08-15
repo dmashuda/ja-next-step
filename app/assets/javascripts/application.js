@@ -21,6 +21,7 @@ $(function(){
     var keywordSearch = $("input.form-control.input-sm");
     var searchDiv = $("#mainNavCollapse .input-group");
     var searchResults = $("#keyword-search-results");
+    var selectedKeywords = $(".selected-keyword-form");
 
     var searchResultHighlightedSelector = "keyword-search-result-highlighted";
     var searchResultSelector = "keyword-search-result";
@@ -37,7 +38,7 @@ $(function(){
     .on("click", removeSelectedKeywordSelector, function(){
         $(this).parent().remove();
 
-        keywordSearch.closest("form").submit();
+        selectedKeywords.submit();
     })
     ;
 
@@ -90,15 +91,14 @@ $(function(){
         var selectedKeyword = $(selectedKeywordSelector + ".template").clone();
 
         selectedKeyword.removeClass("template");
-        selectedKeyword.css("display", "table-cell");
         selectedKeyword.attr("keywordId", keywordId);
         selectedKeyword.prepend(selected.text());
 
         selectedKeyword.append($("<input type='hidden' name='keyword_ids[]' value='" + keywordId + "'>"));
 
-        keywordSearch.before(selectedKeyword);
+        selectedKeywords.append(selectedKeyword);
 
-        keywordSearch.closest("form").submit();
+        selectedKeywords.submit();
     })
     .on("mouseover", "." + searchResultSelector,function(e){
         searchResults.find("." + searchResultHighlightedSelector).removeClass(searchResultHighlightedSelector);
@@ -106,6 +106,12 @@ $(function(){
         $(this).addClass(searchResultHighlightedSelector);
     })
     ;
+
+    $(selectedKeywordSelector + ".clear-all").on("click", function(){
+        $(selectedKeywordSelector).remove();
+
+        selectedKeywords.submit();
+    })
 
     function queueSearch(){
         if(timeoutId) {

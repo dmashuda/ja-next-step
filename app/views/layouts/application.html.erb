@@ -18,14 +18,9 @@
   </button>
   <div class="collapse navbar-toggleable-xs clearfix" id="mainNavCollapse">
     <div class="input-group">
-      <form>
-      <% @keywords.each do |keyword| %>
-          <div class="selected-keyword template" style="display: table-cell;" keywordId="<%= keyword.id %>"><%= keyword.label %>
-            <i class='fa fa-times'></i>
-            <input type="hidden" name="keyword_ids[]" value="<%= keyword.id %>"/>
-          </div>
+      <% if @keywords.size > 0 %>
+          <div class="selected-keyword clear-all">Clear All<i class='fa fa-times'></i></div>
       <% end %>
-      </form>
       <input class="form-control input-sm" placeholder="What's your Next Step?" type="text">
       <div class="btn-group input-group-btn">
         <button class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" type="button">
@@ -55,6 +50,14 @@
       <div id="keyword-search-results"></div>
     </div>
   </div>
+  <form class="selected-keyword-form">
+    <% @keywords.each do |keyword| %>
+        <div class="selected-keyword" keywordId="<%= keyword.id %>"><%= keyword.label %>
+          <i class='fa fa-times'></i>
+          <input type="hidden" name="keyword_ids[]" value="<%= keyword.id %>"/>
+        </div>
+    <% end %>
+  </form>
 </nav>
 
 <div class="container">
