@@ -76,4 +76,19 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  config.action_mailer.default_url_options = {
+      host: 'localhost',
+      port: 3000
+  }
+
+  config.paperclip_defaults = {
+      storage: :fog,
+      fog_credentials: {
+          provider: "Local",
+          local_root: "#{Rails.root}/public"
+      },
+      fog_directory: "",
+      fog_host: "https://janextstep.org",
+  }
 end

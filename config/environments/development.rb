@@ -36,9 +36,20 @@ Rails.application.configure do
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
 
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.default_url_options = {
+      host: 'localhost',
+      port: 3000
+  }
 
-  config.paperclip_defaults = { storage: :fog, fog_credentials: { provider: "Local", local_root: "#{Rails.root}/public"}, fog_directory: "", fog_host: "http://localhost:3000"}
+  config.paperclip_defaults = {
+      storage: :fog,
+      fog_credentials: {
+          provider: "Local",
+          local_root: "#{Rails.root}/public"
+      },
+      fog_directory: "",
+      fog_host: "http://localhost:3000",
+  }
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
