@@ -140,3 +140,22 @@ body > .container {
 .form-control.input-sm {
   border: none;
 }
+
+.dropdown-menu.dropdown-menu-right .list-unstyled {
+  margin-bottom: 0px;
+}
+
+.dropdown-menu-title {
+  font-size: 14pt;
+  font-weight: bold;
+}
+
+.career-field-keywords {
+  display: none;
+
+  list-style: none;
+}
+
+input[type='checkbox'][name='keyword_ids[]'] {
+  margin-right: 2px;
+}

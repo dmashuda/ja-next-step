@@ -28,17 +28,24 @@
         </button>
         <div class="dropdown-menu dropdown-menu-right">
           <li>
+            <div class="row">
+              <ul class="list-unstyled col-md-12">
+                <li class="dropdown-item dropdown-menu-title">Career Fields</li>
+              </ul>
+            </div>
             <div class="row" style="width: 600px;">
               <% @career_fields.each_with_index do |career_field, index| %>
                 <% if index == 0 || index == 9 %>
                 <ul class="list-unstyled col-md-6">
                 <% end %>
-                  <form>
-                    <li><a class="dropdown-item" href="#"><%= career_field.label %></a></li>
-                    <% career_field.keywords.each do |keyword| %>
-                        <%= hidden_field_tag('keyword_ids[]', keyword.id) %>
-                    <% end %>
-                  </form>
+                  <li>
+                    <a class="dropdown-item career-field" href="#"><%= career_field.label %></a>
+                    <ul class="career-field-keywords">
+                      <% career_field.keywords.each do |keyword| %>
+                          <li keywordId="<%= keyword.id %>"><a class="dropdown-item"><%= keyword.label %></a></li>
+                      <% end %>
+                    </ul>
+                  </li>
                 <% if index == 8 || index == (@career_fields.size - 1) %>
                 </ul>
                 <% end %>

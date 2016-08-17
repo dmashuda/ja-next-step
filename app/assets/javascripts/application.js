@@ -27,6 +27,7 @@ $(function(){
     var searchResultSelector = "keyword-search-result";
     var selectedKeywordSelector = ".selected-keyword";
     var removeSelectedKeywordSelector = selectedKeywordSelector + " .fa.fa-times";
+    var selectedCareerFieldSelector = "selected-career-field";
 
     var timeoutId = null;
 
@@ -42,11 +43,41 @@ $(function(){
     })
     ;
 
-    $(".dropdown-item").on("click", function(e){
-       e.preventDefault();
+    $(".dropdown-menu.dropdown-menu-right")
+        .on("click", function(e){
+            e.preventDefault();
+            e.stopPropagation();
+        })
+    ;
 
-        $(this).closest("form").submit();
-    });
+    $(".dropdown-item.career-field")
+        .on("click", function(e){
+            var item = $(this);
+            var div = item.closest("div");
+
+            if(item.hasClass(selectedCareerFieldSelector)){
+                item.removeClass(selectedCareerFieldSelector);
+
+                resetCareerFields(div);
+
+                return;
+            }
+
+            resetCareerFields(div);
+
+            item.addClass(selectedCareerFieldSelector);
+
+            div.find("a.dropdown-item.career-field:not(." + selectedCareerFieldSelector +")").hide();
+
+            item.nextAll(".career-field-keywords").show();
+        })
+    ;
+
+    $(".career-field-keywords .dropdown-item")
+        .on("click", function(e){
+
+        })
+    ;
 
     keywordSearch.on("keyup", function(e){
         var highlighted = searchResults.find("." + searchResultHighlightedSelector);
@@ -107,11 +138,19 @@ $(function(){
     })
     ;
 
-    $(selectedKeywordSelector + ".clear-all").on("click", function(){
-        $(selectedKeywordSelector).remove();
+    $(selectedKeywordSelector + ".clear-all")
+        .on("click", function(){
+            $(selectedKeywordSelector).remove();
 
-        selectedKeywords.submit();
-    })
+            selectedKeywords.submit();
+        })
+    ;
+
+    function resetCareerFields(div){
+        div.find("a.dropdown-item.career-field").show();
+
+        div.find(".career-field-keywords").hide();
+    }
 
     function queueSearch(){
         if(timeoutId) {
