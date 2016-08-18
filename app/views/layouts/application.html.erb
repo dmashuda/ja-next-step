@@ -18,7 +18,7 @@
   </button>
   <div class="collapse navbar-toggleable-xs clearfix" id="mainNavCollapse">
     <div class="input-group">
-      <% if @keywords.size > 0 %>
+      <% if @keywords && @keywords.size() > 0 %>
           <div class="selected-keyword clear-all">Clear All<i class='fa fa-times'></i></div>
       <% end %>
       <input class="form-control input-sm" placeholder="What's your Next Step?" type="text">
@@ -34,7 +34,7 @@
               </ul>
             </div>
             <div class="row" style="width: 600px;">
-              <% @career_fields.each_with_index do |career_field, index| %>
+              <% @career_fields && @career_fields.each_with_index do |career_field, index| %>
                 <% if index == 0 || index == 9 %>
                 <ul class="list-unstyled col-md-6">
                 <% end %>
@@ -58,7 +58,7 @@
     </div>
   </div>
   <form class="selected-keyword-form">
-    <% @keywords.each do |keyword| %>
+    <% @keywords && @keywords.each do |keyword| %>
         <div class="selected-keyword" keywordId="<%= keyword.id %>"><%= keyword.label %>
           <i class='fa fa-times'></i>
           <input type="hidden" name="keyword_ids[]" value="<%= keyword.id %>"/>
@@ -67,7 +67,7 @@
   </form>
 </nav>
 
-<div class="container <% if @keywords.size() > 0 %>keyword-search<% end %>">
+<div class="container <% if @keywords && @keywords.size() > 0 %>keyword-search<% end %>">
   <div class="row">
     <% flash.each do |name, msg| %>
         <div class="alert alert-info alert-dismissible fade in" role="alert">
