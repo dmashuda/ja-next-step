@@ -9,18 +9,5 @@ class Post < ActiveRecord::Base
                        content_type: { content_type: ['image/jpeg', 'image/gif', 'image/png'] }
   self.per_page = 20
 
-  def self.search(keyword_ids)
-    if keyword_ids
-      results = where(nil)
-
-      for keyword_id in keyword_ids
-        results = results.where('id IN (SELECT keyword_post.post_id FROM keyword_post WHERE keyword_id=?)', keyword_id)
-      end
-
-      results
-    else
-      find(:all)
-    end
-  end
 
 end
