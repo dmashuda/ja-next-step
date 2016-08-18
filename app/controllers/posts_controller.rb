@@ -9,7 +9,7 @@ class PostsController < ApplicationController
     activeWhere = Post.where(:active => true, :start_date => 20000.year.ago..Date.today, :end_date => Date.today..20000.year.from_now)
 
     if params[:keyword_ids]
-      activeWhere = activeWhere.joins(:keywords).where(id: params[:keyword_ids])
+      activeWhere = activeWhere.joins(:keywords).where(keyword: {:id => params[:keyword_ids]})
       @keywords = Keyword.find(params[:keyword_ids])
     end
 
