@@ -157,6 +157,32 @@ $(function(){
             clone.find(".ja-profile-body-right-about-us").text(data.about_us);
             clone.find(".ja-profile-body-right-contact-us a").attr("href", "mailto:" + data.email);
 
+            var instagram = clone.find(".fa-instagram").closest("a");
+            var facebook = clone.find(".fa-facebook").closest("a");
+            var twitter = clone.find(".fa-twitter").closest("a");
+            var youtube = clone.find(".fa-youtube").closest("a");
+
+            if(data.instagram_url){
+                instagram.attr("href", data.instagram_url);
+            } else {
+                instagram.hide();
+            }
+            if(data.facebook_url){
+                facebook.attr("href", data.facebook_url);
+            } else {
+                facebook.hide();
+            }
+            if(data.twitter_url){
+                twitter.attr("href", data.twitter_url);
+            } else {
+                twitter.hide();
+            }
+            if(data.youtube_url){
+                youtube.attr("href", data.youtube_url);
+            } else {
+                youtube.hide();
+            }
+
             ajaxRetrieveProfilePosts(stakeholderId);
 
             $("body").append(modal.append(clone));
