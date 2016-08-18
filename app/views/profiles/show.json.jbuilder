@@ -1,1 +1,1 @@
-json.extract! @profile, :id, :banner, :logo, :city, :state, :zip, :about_us, :phone, :website_url
+json.extract! @profile, :id, :banner, :logo, :city, :state, :zip, :about_us, :phone, :website_url, :email

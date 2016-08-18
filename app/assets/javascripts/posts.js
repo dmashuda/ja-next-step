@@ -155,6 +155,7 @@ $(function(){
                 .text(data.website_url)
                 .attr("href", data.website_url);
             clone.find(".ja-profile-body-right-about-us").text(data.about_us);
+            clone.find(".ja-profile-body-right-contact-us a").attr("href", "mailto:" + data.email);
 
             ajaxRetrieveProfilePosts(stakeholderId);
 
