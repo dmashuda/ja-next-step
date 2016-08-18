@@ -6,10 +6,13 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    activeWhere = Post.where(:active => true, :start_date => 20000.year.ago..Date.today, :end_date => Date.today..20000.year.from_now)
+    # Start and end date are not required so NULL checks need added
+    #activeWhere = Post.where(:start_date => 20000.year.ago..Date.today, :end_date => Date.today..20000.year.from_now)
+    activeWhere = Post.where(:active => 1)
 
     if params[:keyword_ids]
       activeWhere = activeWhere.joins(:keywords).where(keyword: {:id => params[:keyword_ids]})
+
       @keywords = Keyword.find(params[:keyword_ids])
     end
 
