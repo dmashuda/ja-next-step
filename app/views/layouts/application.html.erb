@@ -17,36 +17,57 @@
     &#9776;
   </button>
   <div class="collapse navbar-toggleable-xs clearfix" id="mainNavCollapse">
-    <form>
-      <div class="input-group">
-
-        <% @keywords.each do |keyword| %>
-            <div class="selected-keyword template" style="display: table-cell;" keywordId="<%= keyword.id %>"><%= keyword.label %>
-              <i class='fa fa-times'></i>
-              <input type="hidden" name="keyword_ids[]" value="<%= keyword.id %>"/>
+    <div class="input-group">
+      <% if @keywords.size > 0 %>
+          <div class="selected-keyword clear-all">Clear All<i class='fa fa-times'></i></div>
+      <% end %>
+      <input class="form-control input-sm" placeholder="What's your Next Step?" type="text">
+      <div class="btn-group input-group-btn">
+        <button class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" type="button">
+          <i class="fa fa-search"></i>
+        </button>
+        <div class="dropdown-menu dropdown-menu-right">
+          <li>
+            <div class="row">
+              <ul class="list-unstyled col-md-12">
+                <li class="dropdown-item dropdown-menu-title">Career Fields</li>
+              </ul>
             </div>
-        <% end %>
-
-        <input class="form-control input-sm" placeholder="What's your Next Step?" type="text">
-        <div class="btn-group input-group-btn">
-          <button class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" type="button">
-            <i class="fa fa-search"></i>
-          </button>
-          <div class="dropdown-menu dropdown-menu-right">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Separated link</a>
-          </div>
+            <div class="row" style="width: 600px;">
+              <% @career_fields.each_with_index do |career_field, index| %>
+                <% if index == 0 || index == 9 %>
+                <ul class="list-unstyled col-md-6">
+                <% end %>
+                  <li>
+                    <a class="dropdown-item career-field" href="#"><%= career_field.label %></a>
+                    <ul class="career-field-keywords">
+                      <% career_field.keywords.each do |keyword| %>
+                          <li><a class="dropdown-item" keywordId="<%= keyword.id %>"><%= keyword.label %></a></li>
+                      <% end %>
+                    </ul>
+                  </li>
+                <% if index == 8 || index == (@career_fields.size - 1) %>
+                </ul>
+                <% end %>
+              <% end %>
+            </div>
+          </li>
         </div>
-        <div id="keyword-search-results"></div>
       </div>
-    </form>
+      <div id="keyword-search-results"></div>
+    </div>
   </div>
+  <form class="selected-keyword-form">
+    <% @keywords.each do |keyword| %>
+        <div class="selected-keyword" keywordId="<%= keyword.id %>"><%= keyword.label %>
+          <i class='fa fa-times'></i>
+          <input type="hidden" name="keyword_ids[]" value="<%= keyword.id %>"/>
+        </div>
+    <% end %>
+  </form>
 </nav>
 
-<div class="container">
+<div class="container <% if @keywords.size() > 0 %>keyword-search<% end %>">
   <div class="row">
     <% flash.each do |name, msg| %>
         <div class="alert alert-info alert-dismissible fade in" role="alert">

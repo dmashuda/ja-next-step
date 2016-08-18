@@ -21,11 +21,13 @@ $(function(){
     var keywordSearch = $("input.form-control.input-sm");
     var searchDiv = $("#mainNavCollapse .input-group");
     var searchResults = $("#keyword-search-results");
+    var selectedKeywords = $(".selected-keyword-form");
 
     var searchResultHighlightedSelector = "keyword-search-result-highlighted";
     var searchResultSelector = "keyword-search-result";
     var selectedKeywordSelector = ".selected-keyword";
     var removeSelectedKeywordSelector = selectedKeywordSelector + " .fa.fa-times";
+    var selectedCareerFieldSelector = "selected-career-field";
 
     var timeoutId = null;
 
@@ -37,8 +39,47 @@ $(function(){
     .on("click", removeSelectedKeywordSelector, function(){
         $(this).parent().remove();
 
-        keywordSearch.closest("form").submit();
+        selectedKeywords.submit();
     })
+    ;
+
+    $(".dropdown-menu.dropdown-menu-right")
+        .on("click", function(e){
+            e.preventDefault();
+            e.stopPropagation();
+        })
+    ;
+
+    $(".dropdown-item.career-field")
+        .on("click", function(e){
+            var item = $(this);
+            var div = item.closest("div");
+
+            if(item.hasClass(selectedCareerFieldSelector)){
+                item.removeClass(selectedCareerFieldSelector);
+
+                resetCareerFields(div);
+
+                return;
+            }
+
+            resetCareerFields(div);
+
+            item.addClass(selectedCareerFieldSelector);
+
+            div.find("a.dropdown-item.career-field:not(." + selectedCareerFieldSelector +")").hide();
+
+            item.nextAll(".career-field-keywords").show();
+        })
+    ;
+
+    $(".career-field-keywords .dropdown-item")
+        .on("click", function(e){
+            var keyword = $(this);
+            var keywordId = keyword.attr("keywordId");
+
+            addNewKeywordAndSearch(keywordId, keyword.text());
+        })
     ;
 
     keywordSearch.on("keyup", function(e){
@@ -81,18 +122,8 @@ $(function(){
     searchResults.on("click", "." + searchResultSelector, function(e){
         var selected = $(this);
         var keywordId = selected.attr("keywordId");
-        var selectedKeyword = $(selectedKeywordSelector + ".template").clone();
 
-        selectedKeyword.removeClass("template");
-        selectedKeyword.css("display", "table-cell");
-        selectedKeyword.attr("keywordId", keywordId);
-        selectedKeyword.prepend(selected.text());
-
-        selectedKeyword.append($("<input type='hidden' name='keyword_ids[]' value='" + keywordId + "'>"));
-
-        keywordSearch.before(selectedKeyword);
-
-        keywordSearch.closest("form").submit();
+        addNewKeywordAndSearch(keywordId);
     })
     .on("mouseover", "." + searchResultSelector,function(e){
         searchResults.find("." + searchResultHighlightedSelector).removeClass(searchResultHighlightedSelector);
@@ -100,6 +131,34 @@ $(function(){
         $(this).addClass(searchResultHighlightedSelector);
     })
     ;
+
+    $(selectedKeywordSelector + ".clear-all")
+        .on("click", function(){
+            $(selectedKeywordSelector).remove();
+
+            selectedKeywords.submit();
+        })
+    ;
+
+    function addNewKeywordAndSearch(keywordId, label){
+        var selectedKeyword = $(selectedKeywordSelector + ".template").clone();
+
+        selectedKeyword.removeClass("template");
+        selectedKeyword.attr("keywordId", keywordId);
+        selectedKeyword.prepend(label);
+
+        selectedKeyword.append($("<input type='hidden' name='keyword_ids[]' value='" + keywordId + "'>"));
+
+        selectedKeywords.append(selectedKeyword);
+
+        selectedKeywords.submit();
+    }
+
+    function resetCareerFields(div){
+        div.find("a.dropdown-item.career-field").show();
+
+        div.find(".career-field-keywords").hide();
+    }
 
     function queueSearch(){
         if(timeoutId) {

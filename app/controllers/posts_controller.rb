@@ -16,6 +16,8 @@ class PostsController < ApplicationController
       @posts = Post.paginate(:page => params[:page], :per_page => 20)
     end
 
+    @career_fields = CareerField.includes(:keywords).all
+
   end
 
   # GET /posts/1
