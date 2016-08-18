@@ -3,6 +3,12 @@
   <%= @stakeholder.name %>
 </p>
 
-
 <%= link_to 'Edit', edit_stakeholder_path(@stakeholder) %> |
 <%= link_to 'Back', stakeholders_path %>
+
+</br></br></br>
+
+<p>
+  <%= link_to 'View Profile', [@stakeholder, @stakeholder.profile] %> |
+  <%= link_to 'View Posts', :controller => :posts, :action => 'index', :stakeholder_id => @stakeholder.id %>
+</p>

@@ -9,6 +9,9 @@
       </div>
       <div class="ja-post-img-section">
         <img class="ja-post-img" src="<%= post.photo.url %>">
+        <% if user_signed_in? %>
+            <a class="ja-post-edit-link" target="_blank" href="<%= url_for(action: 'edit', id: post.id) %>">Edit</a>
+        <% end %>
         <div class="ja-post-img-gradient">
           <a href="#" class="ja-post-info ja-post-icon-link" stakeholderId="<%= post.stakeholder.id %>"><i class="ja-post-icon fa fa-info-circle"></i></a>
           <a target="contact" class="ja-post-contact ja-post-icon-link" href="mailto:<%= post.contact_email %>?body=<%= post.email_body %>&subject=<%= post.email_subject %>">

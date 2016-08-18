@@ -16,6 +16,10 @@ class PostsController < ApplicationController
       @keywords = Keyword.find(params[:keyword_ids])
     end
 
+    if params[:stakeholder_id]
+      activeWhere = activeWhere.where(:stakeholder_id => params[:stakeholder_id])
+    end
+
     @posts = activeWhere.paginate(:page => params[:page], :per_page => 20)
 
     @career_fields = CareerField.includes(:keywords).all
