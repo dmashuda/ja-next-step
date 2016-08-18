@@ -6,7 +6,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    activeWhere = Post.where('active=1')
+    activeWhere = Post.where(:active => true)
 
     if params[:keyword_ids]
       activeWhere = activeWhere.search(params[:keyword_ids])
