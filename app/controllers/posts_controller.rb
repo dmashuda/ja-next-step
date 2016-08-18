@@ -6,18 +6,17 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @keywords = []
+    activeWhere = Post.where('active=1')
 
     if params[:keyword_ids]
-      @posts = Post.search(params[:keyword_ids]).paginate(:page => params[:page], :per_page => 20)
+      activeWhere = activeWhere.search(params[:keyword_ids])
 
       @keywords = Keyword.find(params[:keyword_ids])
-    else
-      @posts = Post.paginate(:page => params[:page], :per_page => 20)
     end
 
-    @career_fields = CareerField.includes(:keywords).all
+    @posts = activeWhere.paginate(:page => params[:page], :per_page => 20)
 
+    @career_fields = CareerField.includes(:keywords).all
   end
 
   # GET /posts/1
