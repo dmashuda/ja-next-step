@@ -42,7 +42,7 @@
                     <a class="dropdown-item career-field" href="#"><%= career_field.label %></a>
                     <ul class="career-field-keywords">
                       <% career_field.keywords.each do |keyword| %>
-                          <li keywordId="<%= keyword.id %>"><a class="dropdown-item"><%= keyword.label %></a></li>
+                          <li><a class="dropdown-item" keywordId="<%= keyword.id %>"><%= keyword.label %></a></li>
                       <% end %>
                     </ul>
                   </li>

@@ -62,6 +62,10 @@ body > .container {
   color: #ffffff;
 }
 
+.pagination {
+  font-size: 16pt;
+}
+
 #mainNavCollapse .input-group {
   position: relative;
 
@@ -101,6 +105,10 @@ body > .container {
 
 .selected-keyword-form {
   padding-top: 4px;
+
+  margin-left: 157px;
+
+  text-align: left;
 }
 
 .selected-keyword.template {

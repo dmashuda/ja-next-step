@@ -75,7 +75,10 @@ $(function(){
 
     $(".career-field-keywords .dropdown-item")
         .on("click", function(e){
+            var keyword = $(this);
+            var keywordId = keyword.attr("keywordId");
 
+            addNewKeywordAndSearch(keywordId, keyword.text());
         })
     ;
 
@@ -119,17 +122,8 @@ $(function(){
     searchResults.on("click", "." + searchResultSelector, function(e){
         var selected = $(this);
         var keywordId = selected.attr("keywordId");
-        var selectedKeyword = $(selectedKeywordSelector + ".template").clone();
 
-        selectedKeyword.removeClass("template");
-        selectedKeyword.attr("keywordId", keywordId);
-        selectedKeyword.prepend(selected.text());
-
-        selectedKeyword.append($("<input type='hidden' name='keyword_ids[]' value='" + keywordId + "'>"));
-
-        selectedKeywords.append(selectedKeyword);
-
-        selectedKeywords.submit();
+        addNewKeywordAndSearch(keywordId);
     })
     .on("mouseover", "." + searchResultSelector,function(e){
         searchResults.find("." + searchResultHighlightedSelector).removeClass(searchResultHighlightedSelector);
@@ -145,6 +139,20 @@ $(function(){
             selectedKeywords.submit();
         })
     ;
+
+    function addNewKeywordAndSearch(keywordId, label){
+        var selectedKeyword = $(selectedKeywordSelector + ".template").clone();
+
+        selectedKeyword.removeClass("template");
+        selectedKeyword.attr("keywordId", keywordId);
+        selectedKeyword.prepend(label);
+
+        selectedKeyword.append($("<input type='hidden' name='keyword_ids[]' value='" + keywordId + "'>"));
+
+        selectedKeywords.append(selectedKeyword);
+
+        selectedKeywords.submit();
+    }
 
     function resetCareerFields(div){
         div.find("a.dropdown-item.career-field").show();
