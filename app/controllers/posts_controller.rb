@@ -31,6 +31,10 @@ class PostsController < ApplicationController
     @posts = activeWhere.paginate(:page => params[:page], :per_page => 20)
 
     @career_fields = CareerField.includes(:keywords).all
+
+    if user_signed_in? && current_user.is_stakeholder_admin?
+      @stakeholders = Stakeholder.all
+    end
   end
 
   # GET /posts/1
