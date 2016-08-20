@@ -2,8 +2,8 @@
 
     <%= f.input :stakeholder_id, as: :hidden %>
     <%= f.input :subject %>
-    <%= f.input :start_date %>
-    <%= f.input :end_date %>
+    <%= f.input :start_date, as: :string, input_html: {type: :date} %>
+    <%= f.input :end_date, as: :string, input_html: {type: :date} %>
     <%= f.input :abstract %>
     <%= f.input :body %>
     <%= f.input :contact_email %>

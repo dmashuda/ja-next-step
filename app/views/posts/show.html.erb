@@ -14,12 +14,12 @@
 
 <p>
   <strong>Start date:</strong>
-  <%= @post.start_date ? @post.start_date.to_formatted_s(:long_ordinal) : 'N/A'%>
+  <%= @post.start_date ? @post.start_date.strftime("%m/%d/%Y") : 'N/A'%>
 </p>
 
 <p>
   <strong>End date:</strong>
-  <%= @post.end_date ? @post.end_date.to_formatted_s(:long_ordinal) : 'N/A' %>
+  <%= @post.end_date ? @post.end_date.strftime("%m/%d/%Y") : 'N/A' %>
 </p>
 
 <p>
