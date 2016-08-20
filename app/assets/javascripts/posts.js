@@ -85,6 +85,27 @@ $(function(){
         })
     ;
 
+    $(".ja-post-adv-search-tab")
+        .on("click", function(e){
+            e.preventDefault();
+
+            var tab = $(this);
+            var icon = tab.find("i");
+            var parent = tab.parent();
+
+            if(icon.hasClass("fa-search-plus")){
+                parent.css({"right": "0"});
+
+                icon.removeClass("fa-search-plus");
+                icon.addClass("fa-search-minus");
+            } else {
+                parent.removeAttr("style");
+
+                icon.removeClass("fa-search-minus");
+                icon.addClass("fa-search-plus");
+            }
+        })
+    ;
 
 
 

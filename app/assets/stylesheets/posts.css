@@ -263,6 +263,34 @@
     z-index: 1;
 }
 
+.ja-post-adv-search {
+    position: absolute;
+
+    top: 100px;
+    right: -300px;
+}
+
+.ja-post-adv-search-tab, .ja-post-adv-search form {
+    display: inline-block;
+}
+
+.ja-post-adv-search form {
+    background-color: lightgray;
+    padding: 4px;
+
+    width: 300px;
+
+    box-shadow: 10px 5px 5px black;
+}
+
+.ja-post-adv-search-tab {
+    vertical-align: top;
+}
+
+.ja-post-adv-search-tab i {
+    font-size: 28pt;
+}
+
 a, a:hover, a:active, a:visited {
     text-decoration: none;
 }

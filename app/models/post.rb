@@ -3,11 +3,11 @@ class Post < ActiveRecord::Base
   belongs_to :stakeholder
   has_attached_file :photo
 
-  validates :subject, :abstract, :body, :contact_email, :email_subject, :email_body, :active, :stakeholder_id, :presence => true
+  validates :subject, :abstract, :body, :contact_email, :email_subject, :email_body, :stakeholder_id, :presence => true
+  validates :active, :inclusion => [true, false]
 
   validates_attachment :photo,
                        content_type: { content_type: ['image/jpeg', 'image/gif', 'image/png'] }
   self.per_page = 20
-
 
 end

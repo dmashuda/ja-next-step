@@ -9,7 +9,7 @@
       </div>
       <div class="ja-post-img-section">
         <img class="ja-post-img" src="<%= post.photo.url %>">
-        <% if user_signed_in? %>
+        <% if user_signed_in? && current_user.stakeholder_id == post.stakeholder.id %>
             <a class="ja-post-edit-link" target="_blank" href="<%= url_for(action: 'edit', id: post.id) %>">Edit</a>
         <% end %>
         <div class="ja-post-img-gradient">
@@ -29,6 +29,28 @@
     </div>
 <% end %>
 <%= render :file => '/profiles/_shared_show.html.erb', :layout => false %>
+<% if user_signed_in? %>
+
+    <div class="ja-post-adv-search">
+      <a href="#" class="ja-post-adv-search-tab"><i class="fa fa-search-plus"></i></a>
+
+      <%= form_tag("/", method: "get") do %>
+          <div>
+            <%= label_tag(:active, "Active: ") %>
+            <%= select_tag(:active, options_for_select([['', nil], ['Yes', 't'], ['No', 'f']], params[:active])) %>
+          </div>
+          <div>
+            <%= label_tag(:stakeholder_id, "Only Mine: ") %>
+            <%= check_box_tag(:stakeholder_id, current_user.stakeholder_id) %>
+          </div>
+          <div>
+            <%= submit_tag("Search") %>
+          </div>
+      <% end %>
+
+    </div>
+
+<% end %>
 <div>
   <%= will_paginate @posts%>
 </div>
