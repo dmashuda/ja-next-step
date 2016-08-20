@@ -91,15 +91,15 @@ $(function(){
 
             var tab = $(this);
             var icon = tab.find("i");
-            var parent = tab.parent();
+            var fields = tab.prevAll(".ja-post-adv-search-section");
 
             if(icon.hasClass("fa-search-plus")){
-                parent.css({"right": "0"});
+                fields.show();
 
                 icon.removeClass("fa-search-plus");
                 icon.addClass("fa-search-minus");
             } else {
-                parent.removeAttr("style");
+                fields.hide();
 
                 icon.removeClass("fa-search-minus");
                 icon.addClass("fa-search-plus");

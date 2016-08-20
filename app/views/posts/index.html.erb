@@ -29,35 +29,6 @@
     </div>
 <% end %>
 <%= render :file => '/profiles/_shared_show.html.erb', :layout => false %>
-<% if user_signed_in? %>
-
-    <div class="ja-post-adv-search">
-      <a href="#" class="ja-post-adv-search-tab"><i class="fa fa-search-plus"></i></a>
-
-      <%= form_tag("/", method: "get") do %>
-          <div>
-            <%= label_tag(:active, "Active: ") %>
-            <%= select_tag(:active, options_for_select([['', nil], ['Yes', 't'], ['No', 'f']], params[:active])) %>
-          </div>
-          <% if current_user.is_stakeholder_admin? %>
-            <div>
-              <%= label_tag(:stakeholder_id, "Stakeholder: ") %>
-              <%= select_tag(:stakeholder_id, options_from_collection_for_select(@stakeholders, "id", "name", params[:stakeholder_id]), { :prompt => '' }) %>
-            </div>
-          <% else %>
-            <div>
-              <%= label_tag(:stakeholder_id, "Only My Posts: ") %>
-              <%= check_box_tag(:stakeholder_id, current_user.stakeholder_id) %>
-            </div>
-          <% end %>
-          <div>
-            <%= submit_tag("Search") %>
-          </div>
-      <% end %>
-
-    </div>
-
-<% end %>
 <div>
   <%= will_paginate @posts%>
 </div>
