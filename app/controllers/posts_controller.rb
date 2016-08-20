@@ -6,20 +6,20 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    activeWhere = Post.all
-
     if user_signed_in?
 
       if params[:stakeholder_id].present?
-        activeWhere = activeWhere.where(:stakeholder_id => params[:stakeholder_id])
+        activeWhere = Post.where(:stakeholder_id => params[:stakeholder_id])
       end
       if params[:active].present?
-        activeWhere = activeWhere.where(:active => params[:active])
+        activeWhere = activeWhere ? activeWhere.where(:active => params[:active]) : Post.where(:active => params[:active])
       end
 
-    else
+    end
+
+    if !activeWhere
       # Start and end date are not required so NULL checks need added
-      activeWhere = activeWhere.where(:active => true, :start_date => [20000.year.ago..Date.today, nil], :end_date => [Date.today..20000.year.from_now, nil])
+      activeWhere = Post.where(:active => true, :start_date => [20000.year.ago..Date.today, nil], :end_date => [Date.today..20000.year.from_now, nil])
     end
 
     if params[:keyword_ids].present?
