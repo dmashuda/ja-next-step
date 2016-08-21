@@ -32,9 +32,7 @@ class PostsController < ApplicationController
 
     @career_fields = CareerField.includes(:keywords).all
 
-    if user_signed_in? && current_user.is_stakeholder_admin?
-      @stakeholders = Stakeholder.all
-    end
+    @stakeholders = (user_signed_in? && current_user.is_stakeholder_admin?) ? Stakeholder.all : Stakeholder.none
   end
 
   # GET /posts/1
