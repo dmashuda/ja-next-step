@@ -17,7 +17,7 @@
 //= require bootstrap-sprockets
 //= require_tree .
 
-$(function(){
+var appReady = function() {
     var keywordSearch = $("input.form-control.input-sm");
     var searchDiv = $("#mainNavCollapse .input-group");
     var searchResults = $("#keyword-search-results");
@@ -195,4 +195,8 @@ $(function(){
             searchResults.show();
         });
     }
-})
+}
+
+$(document).ready(appReady);
+$(document).on('page:load', appReady);
+$(document).on('turbolinks:load', appReady);

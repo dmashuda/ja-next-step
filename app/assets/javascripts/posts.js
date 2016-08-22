@@ -1,4 +1,4 @@
-$(function(){
+var postsReady = function() {
     var profileNotTemplateSelector = ".ja-profile:not(.ja-profile-template)";
     var profilePagingNextSelector = ".fa-chevron-right";
     var profilePagingPrevSelector = ".fa-chevron-left";
@@ -297,4 +297,8 @@ $(function(){
         mps.find(".ja-post-abstract").toggle();
         mps.find(".ja-post-summary").toggle();
 	}
-});
+}
+
+$(document).ready(postsReady);
+$(document).on('page:load', postsReady);
+$(document).on('turbolinks:load', postsReady);
