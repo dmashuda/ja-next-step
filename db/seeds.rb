@@ -169,7 +169,16 @@ end
 
 for i in 0...25
   df_post_1 = sh_df_2.posts.create(subject: 'Iguanas are cool!', abstract: post_abstract, body: post_summary, active: 1, email_subject: 'I\'d like to learn more about iguanas' , email_body: 'Please contact me at your earliest convenience', contact_email: 'vince@hotmail.com', keywords: Keyword.where('id IN (10,11,12)'), start_date: 6.months.ago, end_date: 6.months.from_now)
-  df_post_1.photo = File.new("#{Rails.root}/db/seedphoto/animal-bio-post.jpeg")
+  df_post_2 = sh_df_2.posts.create(subject: 'Finding artifacts is cool!', abstract: post_abstract, body: post_summary, active: 1, email_subject: 'I\'d like to learn more about artifacts' , email_body: 'Please contact me at your earliest convenience', contact_email: 'vince@hotmail.com', keywords: Keyword.where('id IN (13,14,15)'), start_date: 6.months.ago, end_date: 6.months.from_now)
+  df_post_3 = sh_df_2.posts.create(subject: 'Underwater caulking is cool!', abstract: post_abstract, body: post_summary, active: 1, email_subject: 'I\'d like to learn more about fishes' , email_body: 'Please contact me at your earliest convenience', contact_email: 'vince@hotmail.com', keywords: Keyword.where('id IN (16,17,18)'), start_date: 6.months.ago, end_date: 6.months.from_now)
+
+  df_post_1.photo = File.new("#{Rails.root}/db/seedphoto/animal-bio-post-1.jpeg")
   df_post_1.save
+
+  df_post_2.photo = File.new("#{Rails.root}/db/seedphoto/archeology-post-2.jpeg")
+  df_post_2.save
+
+  df_post_3.photo = File.new("#{Rails.root}/db/seedphoto/marine-bio-post-3.jpeg")
+  df_post_3.save
 end
 
