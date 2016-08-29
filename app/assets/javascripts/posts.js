@@ -71,8 +71,8 @@ var postsReady = function() {
                 var distance = -342 * (idx + 1);
                 var duration = 1000;
 
-                slideProiflePost(post, distance + "px", duration, function(){
-                    $(this).hide();
+                slideProiflePost(post, distance + "px", duration, function(slidePost){
+                    slidePost.hide();
 
                     if((idx+1) >= sliceCount){
                         determineProfilePaging();
@@ -127,7 +127,11 @@ var postsReady = function() {
     }
 
     function slideProiflePost(post, distance, duration, func){
-        post.animate({ left: distance }, duration, func);
+        if(!func) {
+            func = function(){}
+        }
+
+        post.animate({ left: distance }, duration, func(post));
     }
 
     function visibleProfilePosts(){
@@ -299,6 +303,4 @@ var postsReady = function() {
 	}
 }
 
-$(document).ready(postsReady);
-$(document).on('page:load', postsReady);
 $(document).on('turbolinks:load', postsReady);

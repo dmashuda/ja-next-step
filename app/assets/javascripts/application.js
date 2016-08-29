@@ -197,6 +197,4 @@ var appReady = function() {
     }
 }
 
-$(document).ready(appReady);
-$(document).on('page:load', appReady);
 $(document).on('turbolinks:load', appReady);
