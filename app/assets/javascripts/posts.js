@@ -165,13 +165,13 @@ var postsReady = function() {
 
     function ajaxShowProfile(stakeholderId){
         var url = "/stakeholders/" + stakeholderId + "/profile.json";
-        var template = $(".ja-profile.ja-profile-template");
+        var clone = $(".ja-profile.ja-profile-template").clone();
         var modal = $("<div class='" + modalClass + "'></div>");
 
-        $.getJSON(url, function(data){
-            var clone = template.clone();
+        clone.removeClass("ja-profile-template ja-profile-hide");
 
-            clone.removeClass("ja-profile-template ja-profile-hide");
+        $.getJSON(url, function(data){
+            clone.find(".ja-profile-post-list").empty();
 
             clone.find(".ja-profile-banner").attr("src", data.banner);
             clone.find(".ja-profile-logo").attr("src", data.logo);
