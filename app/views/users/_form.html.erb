@@ -1,5 +1,10 @@
 <%= simple_form_for([@stakeholder, @user]) do |f| %>
     <%= f.input :stakeholder_id, as: :hidden %>
     <%= f.input :email %>
+
+    <%= f.input :is_admin do %>
+      <%= check_box_tag 'user[is_admin]' %>
+    <% end %>
+
     <%= f.button :submit %>
 <% end %>

@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
   belongs_to :stakeholder
   has_many :user_roles
 
+  attr_accessor :is_admin
+
   def is_admin?
     !self.user_roles.find_by_role(UserRole.roles[:admin]).nil?
   end

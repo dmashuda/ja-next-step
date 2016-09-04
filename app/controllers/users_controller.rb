@@ -37,6 +37,10 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
+        if p[:is_admin]
+          @user.user_roles.create(role: UserRole.roles[:stakeholder_admin])
+        end
+
         @user.send_reset_password_instructions
         format.html { redirect_to [@stakeholder, @user], notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: [@stakeholder, @user] }
@@ -92,6 +96,6 @@ class UsersController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def user_params
-    params.require(:user).permit(:email, :stakeholder_id)
+    params.require(:user).permit(:email, :stakeholder_id, :is_admin)
   end
 end
