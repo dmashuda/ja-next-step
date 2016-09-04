@@ -1,8 +1,10 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :set_stakeholder
+
   prepend_before_action :stakeholder_admin_only
   prepend_before_action :authenticate_user!
+  prepend_before_action :has_stakeholder_access, only: [:create]
 
 
   # GET /users
@@ -32,6 +34,7 @@ class UsersController < ApplicationController
     p[:password] = SecureRandom.base64(8)
 
     @user = User.new(p)
+
     respond_to do |format|
       if @user.save
         @user.send_reset_password_instructions
@@ -77,6 +80,14 @@ class UsersController < ApplicationController
 
   def set_user
     @user = User.find(params[:id])
+  end
+
+  def has_stakeholder_access
+    sameStakeholder = (current_user.stakeholder_id === user_params[:stakeholder_id].to_i)
+
+    if !sameStakeholder && !current_user.is_admin?
+      redirect_to new_stakeholder_user_url, :alert => 'Access denied. -> you do not have access to this stakeholder'
+    end
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
