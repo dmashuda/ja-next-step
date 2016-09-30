@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :posts
   resources :keywords
   resources :career_fields
+  resources :about_us
 
   resources :stakeholders do
     resources :users

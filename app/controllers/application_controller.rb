@@ -12,6 +12,7 @@ class ApplicationController < ActionController::Base
       redirect_to :root, :alert => 'Access denied. - > Admin role required'
     end
   end
+
   def stakeholder_admin_only
     unless current_user.is_stakeholder_admin?
       redirect_to :root, :alert => 'Access denied. -> stakeholder admin role required'
