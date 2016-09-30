@@ -2,10 +2,10 @@
 <html>
 <head>
   <title>JA NextStep</title>
-  <base href="https://janextstep.org/"/>
-  <meta name="description" content="Junior Achievement NextStep provides a path for learning and connecting with STEAM businesses, orgranizations and individuals in South Central Pennsylvania"/>
+  <meta name="description" content="Junior Achievement NextStep provides a path for learning and connecting with STEAM businesses, organizations and individuals in South Central Pennsylvania"/>
   <meta name="keywords" content="Junior Achievement, STEAM, STEM, STEM Summit, NextStep, high school, college, student, learn, connect, network, opportunities, science, technology, engineering, art, math"/>
   <meta name="robots" content="index, follow"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <%= favicon_link_tag 'favicon.ico' %>
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -130,28 +130,25 @@
               <li class="nav-item active"><a class="nav-link" href="/users/sign_in">Log In</a></li>
           <% end %>
           <li class="nav-item active">
-            <a class="nav-link" href="/stakeholders">Businesses</a>
-          </li>
-          <li class="nav-item active">
             <a class="nav-link" href="#">Help</a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="#">About</a>
+            <a class="nav-link" target="aboutus" href="/about_us">About</a>
           </li>
         </ul>
       </div>
       <div class="col-xs-3">
         <ul class="nav navbar-nav pull-right text-white">
           <li class="nav-item active">
-            <a class="nav-link" href="https://www.juniorachievement.org/web/ja-centralpa/home">
+            <a class="nav-link" target="_blank" href="https://www.juniorachievement.org/web/ja-scpa">
             <i class="fa fa-2x fa-globe"></i></a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="https://www.facebook.com/Junior-Achievement-of-Central-PA-118930228120342/">
+            <a class="nav-link" target="_blank" href="https://www.facebook.com/juniorachievementofsouthcentralpa/">
               <i class="fa fa-2x fa-facebook"></i></a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="https://twitter.com/JACentralPA">
+            <a class="nav-link" target="_blank" href="https://twitter.com/jascpa">
             <i class="fa fa-2x fa-twitter"></i></a>
           </li>
         </ul>

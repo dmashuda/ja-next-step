@@ -10,5 +10,7 @@
 
 <p>
   <%= link_to 'View Profile', [@stakeholder, @stakeholder.profile] %> |
-  <%= link_to 'View Posts', :controller => :posts, :action => 'index', :stakeholder_id => @stakeholder.id %>
+  <%= link_to 'View Posts', :controller => :posts, :action => 'index', :stakeholder_id => @stakeholder.id %> |
+  <%= link_to 'Create New User', :controller => :users, :action => 'new', :stakeholder_id => @stakeholder.id %> |
+  <%= link_to 'View Users', :controller => :users, :action => 'index', :stakeholder_id => @stakeholder.id %>
 </p>
