@@ -45,6 +45,8 @@ gem 'fog'
 
 gem 'aws-sdk-rails'
 
+gem 'aws-sdk', '~> 2'
+
 source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.1.0'
 end
