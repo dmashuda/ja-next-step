@@ -80,7 +80,8 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :aws_sdk
 
   config.action_mailer.default_options = {
-      from: "noreply@janextstep.org"
+      :from => "noreply@janextstep.org",
+	  :host => "janextstep.org"
   }
 
   config.paperclip_defaults = {
