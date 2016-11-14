@@ -43,6 +43,8 @@ gem 'devise'
 
 gem 'fog'
 
+gem 'aws-sdk-rails'
+
 gem 'aws-sdk', '~> 2'
 
 source 'https://rails-assets.org' do
