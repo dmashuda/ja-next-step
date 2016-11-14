@@ -2,6 +2,8 @@
     position: relative;
     display: inline-block;
 
+    vertical-align: top;
+
     border-radius: 8px;
 
     border: 1px solid gray;

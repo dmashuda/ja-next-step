@@ -85,13 +85,25 @@ body > .container.keyword-search {
   display: none;
   position: absolute;
   left: 0px;
-  top: 37px;
+  top: 42px;
   right: 70px;
   background-color: white;
   border: 1px solid lightgray;
   max-height: 300px;
   overflow: auto;
   text-align: left;
+}
+
+@media screen and (max-width: 600px) {
+  #keyword-search-results {
+    left: -170px;
+    right: -50px;
+  }
+
+  .dropdown-menu.dropdown-menu-right {
+    left: -240px;
+    right: -50px;
+  }
 }
 
 .keyword-search-result {
@@ -173,5 +185,13 @@ input[type='checkbox'][name='keyword_ids[]'] {
 }
 
 .navbar-toggler {
+  float: right;
+}
+
+.footer-nav-left {
+  float: left;
+}
+
+.footer-nav-right {
   float: right;
 }
