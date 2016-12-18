@@ -23,7 +23,7 @@ test:
 production:
   <<: *default
   adapter: mysql2
-  database: nextstep
+  database: <%= ENV['MYSQL_DATABASE'] %>
   username: <%= ENV['MYSQL_USERNAME'] %>
   password: <%= ENV['MYSQL_PASSWORD'] %>
   host: <%= ENV['MYSQL_HOST'] %>
