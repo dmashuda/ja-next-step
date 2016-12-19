@@ -28,4 +28,4 @@ production:
   password: <%= ENV['MYSQL_PASSWORD'] %>
   host: <%= ENV['MYSQL_HOST'] %>
   port: 3036
-  encoding: utf-8
+  encoding: utf8
