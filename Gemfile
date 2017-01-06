@@ -8,8 +8,7 @@ gem 'rails', '4.2.6'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 
-# Use mysql as the database for Active Record
-gem 'mysql2', '~> 0.4.4'
+
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
@@ -57,6 +56,11 @@ end
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+end
+
+group :production do
+  # Use mysql as the database for Active Record
+  gem 'mysql2', '~> 0.4.4'
 end
 
 group :development do
