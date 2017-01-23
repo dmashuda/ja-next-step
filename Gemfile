@@ -8,6 +8,8 @@ gem 'rails', '4.2.6'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 
+
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 
@@ -56,6 +58,11 @@ group :development, :test do
   gem 'byebug'
 end
 
+group :production do
+  # Use mysql as the database for Active Record
+  gem 'mysql2', '~> 0.4.4'
+end
+
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
@@ -63,4 +70,3 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
-

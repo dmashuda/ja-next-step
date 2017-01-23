@@ -5,11 +5,13 @@ class Profile < ActiveRecord::Base
                                  :message => 'Invalid e-mail! Please provide a valid e-mail address'}
   validates :email, presence: true
 
-  has_attached_file :logo
-  has_attached_file :banner
+  has_attached_file :logo, :default_url => "/default_logo.png"
+
+  has_attached_file :banner, :default_url => "/default_banner.png"
 
   validates_attachment :logo,
                        content_type: {content_type: ['image/jpeg', 'image/gif', 'image/png']}
+
 
   validates_attachment :banner,
                        content_type: {content_type: ['image/jpeg', 'image/gif', 'image/png']}

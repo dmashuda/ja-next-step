@@ -236,6 +236,7 @@ GEM
     mini_portile2 (2.1.0)
     minitest (5.9.0)
     multi_json (1.12.1)
+    mysql2 (0.4.5)
     nokogiri (1.6.8)
       mini_portile2 (~> 2.1.0)
       pkg-config (~> 1.1.7)
@@ -341,6 +342,7 @@ DEPENDENCIES
   font-awesome-rails
   jbuilder (~> 2.0)
   jquery-rails
+  mysql2 (~> 0.4.4)
   paperclip (~> 5.0.0)
   rails (= 4.2.6)
   rails-assets-tether (>= 1.1.0)!
