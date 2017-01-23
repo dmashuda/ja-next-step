@@ -145,12 +145,12 @@ sh_df_1 = Stakeholder.create(name: 'The Mathmatics Association of America', keyw
 default_admin = sh_df_1.users.create(email: 'dmashuda@ycp.edu', password: easy_pass, password_confirmation: easy_pass)
 default_admin.user_roles.create(role: UserRole.roles[:stakeholder_admin])
 default_admin.user_roles.create(role: UserRole.roles[:admin])
-sh_df_1.create_profile(name: 'The Mathmatics Association of America', email: 'contact@maa.org', website_url: 'http://www.maa.org/', logo: File.new("#{Rails.root}/db/seedphoto/math-logo.jpg"), banner: File.new("#{Rails.root}/db/seedphoto/math-banner.jpg"), street: "1529 18th St. NW", city: "Washington", state: "District of Columbia", zip: "20036-1358", phone: "(800) 741-9415", about_us: profile_about_us_1)
+sh_df_1.profile.update_attributes(name: 'The Mathmatics Association of America', email: 'contact@maa.org', website_url: 'http://www.maa.org/', logo: File.new("#{Rails.root}/db/seedphoto/math-logo.jpg"), banner: File.new("#{Rails.root}/db/seedphoto/math-banner.jpg"), street: "1529 18th St. NW", city: "Washington", state: "District of Columbia", zip: "20036-1358", phone: "(800) 741-9415", about_us: profile_about_us_1)
 
 sh_df_2 = Stakeholder.create(name: 'UC Davis Animal Biology', keywords: [])
 default_admin = sh_df_2.users.create(email: 'lion.tamer@gmail.com', password: easy_pass, password_confirmation: easy_pass)
 default_admin.user_roles.create(role: UserRole.roles[:stakeholder_admin])
-sh_df_2.create_profile(name: 'University of California Davis', email: 'contact@ucd.edu', website_url: 'https://www.ucdavis.edu/', logo: File.new("#{Rails.root}/db/seedphoto/animal-bio-logo.png"), banner: File.new("#{Rails.root}/db/seedphoto/animal-bio-banner.jpeg"), street: "Davis, One Shields Avenue", city: "Davis", state: "California", zip: "95616", phone: "530-752-1011", about_us: profile_about_us_2)
+sh_df_2.profile.update_attributes(name: 'University of California Davis', email: 'contact@ucd.edu', website_url: 'https://www.ucdavis.edu/', logo: File.new("#{Rails.root}/db/seedphoto/animal-bio-logo.png"), banner: File.new("#{Rails.root}/db/seedphoto/animal-bio-banner.jpeg"), street: "Davis, One Shields Avenue", city: "Davis", state: "California", zip: "95616", phone: "530-752-1011", about_us: profile_about_us_2)
 
 for i in 0...25
   df_post_1 = sh_df_1.posts.create(subject: 'MAA Dinner', abstract: post_abstract, body: post_summary, active: 1, email_subject: 'MAA Dinner RSVP', email_body: 'I am interested in attending the MAA Dinner', contact_email: 'vince@yahoo.com', keywords: Keyword.where('id IN (1,2,3)'), start_date: 6.months.ago, end_date: 6.months.from_now)
