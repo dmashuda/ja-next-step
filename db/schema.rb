@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160730200704) do
+ActiveRecord::Schema.define(version: 20170202142441) do
 
   create_table "career_field", force: :cascade do |t|
     t.string   "label"
@@ -93,7 +93,7 @@ ActiveRecord::Schema.define(version: 20160730200704) do
     t.string   "banner_content_type"
     t.integer  "banner_file_size"
     t.datetime "banner_updated_at"
-    t.string   "about_us"
+    t.text     "about_us"
   end
 
   create_table "stakeholder", force: :cascade do |t|
