@@ -1,3 +1,4 @@
+/*
 .ja-post-min, .ja-post-max {
     position: relative;
     display: inline-block;
@@ -137,12 +138,11 @@
 
     z-index: 1;
 
-    /*background-color:rgba(0, 0, 0, 0.5);*/
-    background: rgba(0, 0, 0, 0.5); /* For browsers that do not support gradients */
-    background: -webkit-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75)); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75)); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75)); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75)); /* Standard syntax */
+    background: rgba(0, 0, 0, 0.5);
+    background: -webkit-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75));
+    background: -o-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75));
+    background: -moz-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75));
+    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75));
 }
 
 .ja-post-max .ja-post-img-gradient {
@@ -265,6 +265,8 @@
     z-index: 1;
 }
 
+*/
+
 .ja-post-adv-search {
     position: absolute;
 
@@ -320,4 +322,132 @@ a, a:hover, a:active, a:visited {
 
 .ja-modal .ja-profile {
     margin-top: 30px;
+}
+
+
+
+
+
+
+
+
+div.post-column {
+    padding: 0px 2px;
+}
+
+div.post {
+    border: 1px solid #C0C0C0;
+
+    margin: 2px;
+
+    box-shadow: 2px 0px 6px lightgrey;
+
+    border-radius: 8px;
+
+    height: 485px;
+    overflow: hidden;
+}
+
+
+.post-stkhdlr-name {
+    margin-left: 68px;
+    margin-right: 16px;
+    overflow: hidden;
+
+    white-space: nowrap;
+}
+
+.post-header, .post-stkhdlr-name {
+    font-size: 16pt;
+
+    color: darkgreen;
+}
+
+.post-abstract {
+    height: 142px;
+}
+
+.post-summary {
+    display: none;
+
+    height: 172px;
+}
+
+.post-abstract, .post-summary {
+    font-size: 12pt;
+
+    color: gray;
+
+    padding: 0px 2px;
+
+    overflow: auto;
+}
+
+.post .post-body {
+    position: relative;
+
+    padding: 0px;
+}
+
+.post-banner {
+    height: 100%;
+    width: 100%;
+}
+
+.post-img-links {
+    position: relative;
+    padding: 0px 4px;
+
+    bottom: 48px;
+}
+
+.post-img-links a {
+    font-size: 34pt;
+
+    color: white;
+}
+
+.post-close {
+    display: none;
+    position: absolute;
+
+    font-size: 34px;
+
+    right: 4px;
+    top: -10px;
+}
+
+.post-logo {
+    position: absolute;
+
+    left: 20px;
+    top: -25px;
+
+    height: 50px;
+    z-index: 2;
+}
+
+.post-header {
+    padding-top: 10px;
+}
+
+.post-hr {
+    border-color: orange;
+
+    margin: 10px;
+}
+
+.post-edit {
+    position: absolute;
+    top: 2px;
+    right: 17px;
+    background-color: white;
+    padding: 0px 10px;
+}
+
+a.post-more {
+    position: absolute;
+    right: 6px;
+    bottom: 3px;
+    font-size: 20pt;
 }

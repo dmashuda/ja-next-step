@@ -107,7 +107,7 @@
   </form>
 </nav>
 
-<div class="container <% if @keywords && @keywords.size() > 0 %>keyword-search<% end %>">
+<div class="container-fluid <% if @keywords && @keywords.size() > 0 %>keyword-search<% end %>">
   <div class="row">
     <% flash.each do |name, msg| %>
         <div class="alert alert-info alert-dismissible fade in" role="alert">

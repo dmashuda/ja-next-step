@@ -7,7 +7,31 @@ var postsReady = function() {
 
     var modalClass = "ja-modal";
 
+    $("body")
+        .on("click", "a.post-more", function(e) {
+            e.preventDefault();
+
+            var more = $(this);
+            var post = more.closest(".post");
+
+            post.find(".post-abstract").toggle();
+            post.find(".post-summary").toggle();
+
+            more.toggle();
+        })
+        .on("click", ".post-profile", function(e){
+            e.preventDefault();
+
+            var stakeholderId = $(this).attr("stakeholderId");
+
+            ajaxShowProfile(stakeholderId);
+        })
+    ;
+
+
+
 	$("body")
+/*
         .on("click", ".ja-post-header a, .ja-post-subject a, .ja-post-abstract a, .ja-post-close", function(e){
             e.preventDefault();
 
@@ -29,6 +53,7 @@ var postsReady = function() {
 
             ajaxShowProfile(stakeholderId);
         })
+*/
         .on("click", "." + modalClass + ", .ja-profile .ja-profile-close", function(e){
             var ele = $(this);
 

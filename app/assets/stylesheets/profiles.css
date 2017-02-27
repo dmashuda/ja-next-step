@@ -149,3 +149,8 @@
 
     z-index: 1;
 }
+
+.ja-profile-body-right-about-us {
+    white-space: pre-wrap;
+    text-align: left;
+}

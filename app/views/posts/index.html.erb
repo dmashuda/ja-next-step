@@ -1,0 +1,27 @@
+<% @posts.each do |post| %>
+<div class="col-lg-3 post-column">
+  <div class="row post">
+    <div class="post-stkhdlr-name" title="<%= post.stakeholder.name %>"><%= post.stakeholder.name %></div>
+    <div class="col-lg-12 post-body">
+      <img class="post-logo img-circle" src="<%= post.stakeholder.profile.logo.url %>">
+      <img class="post-banner" src="<%= post.photo.url %>">
+      <% if user_signed_in? && current_user.stakeholder_id == post.stakeholder.id %>
+          <a class="post-edit" target="_blank" href="<%= url_for(action: 'edit', id: post.id) %>">Edit</a>
+      <% end %>
+      <div class="post-img-links">
+        <a href="#" class="post-profile pull-left fa fa-info-circle" stakeholderId="<%= post.stakeholder.id %>"></a>
+        <a class="pull-right fa fa-envelope" target="contact" href="mailto:<%= post.contact_email %>?body=<%= post.email_body %>&subject=<%= post.email_subject %>"></a>
+      </div>
+      <div class="post-header"><%= post.subject %></div>
+      <hr class="post-hr"/>
+      <div class="post-abstract"><%= post.abstract %></div>
+      <div class="post-summary"><%= post.body %></div>
+    </div>
+    <a href="#" class="post-more fa fa-chevron-circle-down"></a>
+  </div>
+</div>
+<% end %>
+<%= render :file => '/profiles/_shared_show.html.erb', :layout => false %>
+<div class="col-lg-12">
+  <%= will_paginate @posts%>
+</div>
